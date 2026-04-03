@@ -84,6 +84,18 @@ export default function AdminDashboard() {
     setUpdating(null);
   };
 
+  const changeStatus = async (job, newStatus) => {
+    setUpdating(job.id + "_status");
+    const extra = {};
+    if (newStatus === "accepted") extra.accepted_at = new Date().toISOString();
+    if (newStatus === "arrived") extra.arrived_at = new Date().toISOString();
+    if (newStatus === "completed") extra.completed_at = new Date().toISOString();
+    const updated = await base44.entities.Job.update(job.id, { status: newStatus, ...extra });
+    setSelectedJob(updated);
+    await load();
+    setUpdating(null);
+  };
+
   const cancelJob = async (job) => {
     if (!window.confirm("Cancel this job?")) return;
     setUpdating(job.id + "_cancel");
@@ -409,6 +421,21 @@ export default function AdminDashboard() {
                 )}
                 {selectedJob.mechanic_payment_sent && <div className="flex-1 text-center text-green-600 font-bold py-3">✅ Prince Waiyaki Paid</div>}
               </div>
+              {/* Manual status override */}
+              {!["completed","cancelled"].includes(selectedJob.status) && (
+                <div className="border-2 border-gray-100 rounded-xl p-3">
+                  <p className="text-xs text-gray-400 mb-2">Manually change job status:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["pending","accepted","en_route","arrived","completed"].filter(s => s !== selectedJob.status).map(s => (
+                      <button key={s} onClick={() => changeStatus(selectedJob, s)}
+                        disabled={!!updating}
+                        className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-lg capitalize transition-colors">
+                        {updating === selectedJob.id + "_status" ? "..." : s.replace("_", " ")}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
               {!["completed","cancelled"].includes(selectedJob.status) && (
                 <Button variant="outline" className="w-full h-11 border-2 border-red-200 text-red-500 hover:bg-red-50 rounded-xl"
                   onClick={() => cancelJob(selectedJob)} disabled={updating === selectedJob.id + "_cancel"}>

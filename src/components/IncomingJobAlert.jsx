@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const TIMEOUT_SECONDS = 30;
 
-export default function IncomingJobAlert({ job, onAccept, onDecline, accepting }) {
+export default function IncomingJobAlert({ job, onAccept, onDecline, onTimeout, accepting }) {
   const [seconds, setSeconds] = useState(TIMEOUT_SECONDS);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function IncomingJobAlert({ job, onAccept, onDecline, accepting }
       setSeconds(s => {
         if (s <= 1) {
           clearInterval(interval);
-          onDecline(job);
+          onTimeout ? onTimeout() : onDecline(job);
           return 0;
         }
         return s - 1;

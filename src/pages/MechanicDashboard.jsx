@@ -16,7 +16,7 @@ export default function MechanicDashboard() {
   const [loading, setLoading] = useState(true);
   const [activeJob, setActiveJob] = useState(null);
   const [incomingJob, setIncomingJob] = useState(null);
-  const seenJobIds = useRef(new Set());
+  const currentAlertJobId = useRef(null);
   const [accepting, setAccepting] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [mechanicNotes, setMechanicNotes] = useState("");
@@ -32,9 +32,15 @@ export default function MechanicDashboard() {
     else setActiveJob(null);
 
     const pendingJobs = all.filter(j => j.status === "pending");
-    const newJob = pendingJobs.find(j => !seenJobIds.current.has(j.id));
-    pendingJobs.forEach(j => seenJobIds.current.add(j.id));
-    if (newJob && !active) setIncomingJob(newJob);
+    if (!active && pendingJobs.length > 0) {
+      const firstPending = pendingJobs[0];
+      if (currentAlertJobId.current !== firstPending.id) {
+        currentAlertJobId.current = firstPending.id;
+        setIncomingJob(firstPending);
+      }
+    } else if (active || pendingJobs.length === 0) {
+      if (pendingJobs.length === 0) currentAlertJobId.current = null;
+    }
 
     setLoading(false);
   }, []);
@@ -51,7 +57,7 @@ export default function MechanicDashboard() {
   useEffect(() => {
     load();
     loadStatus();
-    const i = setInterval(load, 8000);
+    const i = setInterval(load, 5000);
     return () => clearInterval(i);
   }, [load, loadStatus]);
 
@@ -68,6 +74,7 @@ export default function MechanicDashboard() {
 
   const accept = async (job) => {
     setIncomingJob(null);
+    currentAlertJobId.current = null;
     setAccepting(true);
     setUpdating(true);
     const optimistic = { ...job, status: "accepted", accepted_at: new Date().toISOString() };
@@ -86,8 +93,15 @@ export default function MechanicDashboard() {
     }).catch(() => {});
   };
 
+  const dismiss = () => {
+    // Timer expired — just hide the alert, don't cancel the job
+    setIncomingJob(null);
+    currentAlertJobId.current = null;
+  };
+
   const decline = async (job) => {
     setIncomingJob(null);
+    currentAlertJobId.current = null;
     setUpdating(true);
     await base44.entities.Job.update(job.id, { status: "cancelled" });
     await load();
@@ -130,7 +144,7 @@ export default function MechanicDashboard() {
   return (
     <>
       {incomingJob && (
-        <IncomingJobAlert job={incomingJob} onAccept={accept} onDecline={decline} accepting={accepting} />
+        <IncomingJobAlert job={incomingJob} onAccept={accept} onDecline={decline} onTimeout={dismiss} accepting={accepting} />
       )}
 
       <div className="min-h-screen bg-[#0F0F0F]">

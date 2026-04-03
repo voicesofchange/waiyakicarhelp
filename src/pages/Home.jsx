@@ -197,7 +197,23 @@ export default function Home() {
 
       {/* Form */}
       <div className="flex-1 bg-white rounded-t-3xl px-5 pt-6 pb-8">
-        <p className="text-gray-500 text-sm font-medium mb-5 uppercase tracking-wide">Your details</p>
+        {/* Steps */}
+        <div className="flex items-center gap-2 mb-5">
+          <div className="flex items-center gap-1.5">
+            <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span className="text-xs font-black text-gray-400">1</span></div>
+            <span className="text-xs text-gray-400">Choose</span>
+          </div>
+          <div className="flex-1 h-0.5 bg-gray-200"/>
+          <div className="flex items-center gap-1.5">
+            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center"><span className="text-xs font-black text-white">2</span></div>
+            <span className="text-xs font-bold text-amber-600">Your Info</span>
+          </div>
+          <div className="flex-1 h-0.5 bg-gray-200"/>
+          <div className="flex items-center gap-1.5">
+            <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span className="text-xs font-black text-gray-400">3</span></div>
+            <span className="text-xs text-gray-400">Track</span>
+          </div>
+        </div>
         <div className="space-y-4">
           <div>
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5 block">Full Name</label>
@@ -295,6 +311,23 @@ export default function Home() {
 
         {/* Details card */}
         <div className="flex-1 bg-white rounded-t-3xl px-5 pt-6 pb-8 space-y-5">
+          {/* Steps */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span className="text-xs font-black text-gray-400">1</span></div>
+              <span className="text-xs text-gray-400">Choose</span>
+            </div>
+            <div className="flex-1 h-0.5 bg-gray-200"/>
+            <div className="flex items-center gap-1.5">
+              <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center"><span className="text-xs font-black text-gray-400">2</span></div>
+              <span className="text-xs text-gray-400">Your Info</span>
+            </div>
+            <div className="flex-1 h-0.5 bg-amber-400"/>
+            <div className="flex items-center gap-1.5">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center"><span className="text-xs font-black text-white">3</span></div>
+              <span className="text-xs font-bold text-amber-600">Tracking</span>
+            </div>
+          </div>
           <div className="bg-gray-50 rounded-2xl p-4 space-y-3">
             <div className="flex justify-between text-sm"><span className="text-gray-400 font-medium">Reference</span><span className="font-mono font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded">{activeJob?.id?.slice(-8).toUpperCase()}</span></div>
             <div className="flex justify-between text-sm"><span className="text-gray-400 font-medium">Service</span><span className="font-bold text-gray-900">{activeJob?.service_type_name}</span></div>
