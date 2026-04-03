@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { base44 } from "@/api/base44Client";
-import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight } from "lucide-react";
+import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight, Phone, LogOut } from "lucide-react";
 import IncomingJobAlert from "@/components/IncomingJobAlert";
 import { Button } from "@/components/ui/button";
 import JobCard from "@/components/JobCard";
@@ -9,7 +9,7 @@ import PullToRefresh from "@/components/PullToRefresh";
 import { format, startOfWeek, startOfMonth } from "date-fns";
 
 const NEXT_STATUS = { accepted: "en_route", en_route: "arrived", arrived: "completed" };
-const NEXT_LABEL  = { accepted: "🚗 Mark En Route", en_route: "📍 Mark Arrived", arrived: "✅ Mark Job Complete" };
+const NEXT_LABEL  = { accepted: "🚗 Mark En Route", en_route: "📍 Mark Arrived", arrived: "✅ Complete Job" };
 
 export default function MechanicDashboard() {
   const [jobs, setJobs] = useState([]);
@@ -31,13 +31,10 @@ export default function MechanicDashboard() {
     if (active) { setActiveJob(active); setMechanicNotes(active.mechanic_notes || ""); }
     else setActiveJob(null);
 
-    // Detect new pending jobs (Uber-style alert)
     const pendingJobs = all.filter(j => j.status === "pending");
     const newJob = pendingJobs.find(j => !seenJobIds.current.has(j.id));
     pendingJobs.forEach(j => seenJobIds.current.add(j.id));
-    if (newJob && !active) {
-      setIncomingJob(newJob);
-    }
+    if (newJob && !active) setIncomingJob(newJob);
 
     setLoading(false);
   }, []);
@@ -58,10 +55,6 @@ export default function MechanicDashboard() {
     return () => clearInterval(i);
   }, [load, loadStatus]);
 
-  const handleRefresh = useCallback(async () => {
-    await Promise.all([load(), loadStatus()]);
-  }, [load, loadStatus]);
-
   const toggleAvailability = async () => {
     if (!statusRecord) return;
     setTogglingStatus(true);
@@ -77,7 +70,6 @@ export default function MechanicDashboard() {
     setIncomingJob(null);
     setAccepting(true);
     setUpdating(true);
-    // Optimistic update
     const optimistic = { ...job, status: "accepted", accepted_at: new Date().toISOString() };
     setActiveJob(optimistic);
     setJobs(prev => prev.map(j => j.id === job.id ? optimistic : j));
@@ -90,7 +82,7 @@ export default function MechanicDashboard() {
     base44.integrations.Core.SendEmail({
       to: "sustainthevoices@gmail.com",
       subject: `✅ Job Accepted — ${job.service_type_name} — ${job.member_name}`,
-      body: `Prince Waiyaki has accepted a job.\n\nJob ID: ${job.id}\nService: ${job.service_type_name} — KES ${job.price_kes}\nMember: ${job.member_name} — ${job.member_phone}\nVehicle: ${job.vehicle_type}\nLocation: ${job.location_description}\n\nAccepted at: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}`,
+      body: `Job accepted.\n\nJob ID: ${job.id}\nService: ${job.service_type_name} — KES ${job.price_kes}\nMember: ${job.member_name} — ${job.member_phone}\nVehicle: ${job.vehicle_type}\nLocation: ${job.location_description}\n\nAccepted: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}`,
     }).catch(() => {});
   };
 
@@ -106,7 +98,6 @@ export default function MechanicDashboard() {
     if (!activeJob) return;
     setUpdating(true);
     const next = NEXT_STATUS[activeJob.status];
-    // Optimistic update
     setActiveJob(prev => prev ? { ...prev, status: next } : null);
     const extra = {};
     if (next === "arrived") extra.arrived_at = new Date().toISOString();
@@ -118,7 +109,7 @@ export default function MechanicDashboard() {
       base44.integrations.Core.SendEmail({
         to: "sustainthevoices@gmail.com",
         subject: `🏁 Job Complete — ${activeJob.service_type_name} — ${activeJob.member_name}`,
-        body: `Job complete.\n\nJob ID: ${activeJob.id}\nService: ${activeJob.service_type_name} — KES ${activeJob.price_kes}\nMember: ${activeJob.member_name} — ${activeJob.member_phone}\nMechanic Notes: ${mechanicNotes || "None"}\n\nCompleted at: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}`,
+        body: `Job complete.\n\nJob ID: ${activeJob.id}\nService: ${activeJob.service_type_name} — KES ${activeJob.price_kes}\nMember: ${activeJob.member_name} — ${activeJob.member_phone}\nNotes: ${mechanicNotes || "None"}\n\nCompleted: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}`,
       }).catch(() => {});
     } else setActiveJob(updated);
     await load();
@@ -138,179 +129,201 @@ export default function MechanicDashboard() {
 
   return (
     <>
-    {incomingJob && (
-      <IncomingJobAlert
-        job={incomingJob}
-        onAccept={accept}
-        onDecline={decline}
-        accepting={accepting}
-      />
-    )}
-    <PullToRefresh onRefresh={handleRefresh}>
-      <div className="max-w-lg mx-auto px-4 py-6">
+      {incomingJob && (
+        <IncomingJobAlert job={incomingJob} onAccept={accept} onDecline={decline} accepting={accepting} />
+      )}
+
+      <div className="min-h-screen bg-[#0F0F0F]">
         {/* Header */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center">
-            <span className="text-amber-400 font-black text-lg">W</span>
+        <div className="px-5 pt-12 pb-5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center">
+              <span className="text-black font-black text-lg">W</span>
+            </div>
+            <div>
+              <p className="text-white font-black text-base">WAIYAKI</p>
+              <p className="text-gray-400 text-xs">Mechanic Portal</p>
+            </div>
           </div>
-          <div className="flex-1">
-            <h1 className="font-black text-gray-900 text-xl">WAIYAKI — Mechanic</h1>
-            <p className="text-sm text-gray-500">Prince Waiyaki (Boss) · Limuru Area</p>
-          </div>
+          <button onClick={() => base44.auth.logout()} className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
+            <LogOut className="w-4 h-4 text-gray-300" />
+          </button>
         </div>
 
-        {/* Availability Toggle */}
+        {/* Availability toggle */}
         {statusRecord && (
-          <div className={`rounded-2xl p-4 mb-5 flex items-center justify-between ${statusRecord.is_available ? "bg-green-50 border-2 border-green-400" : "bg-gray-100 border-2 border-gray-300"}`}>
-            <div>
-              <p className={`font-black text-lg ${statusRecord.is_available ? "text-green-800" : "text-gray-600"}`}>
-                {statusRecord.is_available ? "🟢 Available" : "🔴 Busy / Off"}
-              </p>
-              <p className="text-sm text-gray-500">Tap to change your status</p>
-            </div>
-            <button onClick={toggleAvailability} disabled={togglingStatus} className="text-gray-600">
-              {togglingStatus ? <Loader2 className="w-7 h-7 animate-spin" /> :
-                statusRecord.is_available ? <ToggleRight className="w-12 h-12 text-green-500" /> : <ToggleLeft className="w-12 h-12 text-gray-400" />}
+          <div className="mx-5 mb-4">
+            <button
+              onClick={toggleAvailability}
+              disabled={togglingStatus}
+              className={`w-full rounded-2xl p-4 flex items-center justify-between transition-all ${statusRecord.is_available ? "bg-green-600" : "bg-gray-700"}`}
+            >
+              <div>
+                <p className="text-white font-black text-base">{statusRecord.is_available ? "🟢 Available for Jobs" : "🔴 Not Available"}</p>
+                <p className="text-white/70 text-xs mt-0.5">Tap to {statusRecord.is_available ? "go offline" : "go online"}</p>
+              </div>
+              {togglingStatus ? <Loader2 className="w-6 h-6 text-white animate-spin" /> :
+                statusRecord.is_available ? <ToggleRight className="w-10 h-10 text-white" /> : <ToggleLeft className="w-10 h-10 text-white/60" />}
             </button>
           </div>
         )}
 
-        {/* View Tabs */}
-        <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-5">
-          {[{ id: "jobs", label: "Jobs" }, { id: "earnings", label: "My Earnings" }].map(t => (
+        {/* Tabs */}
+        <div className="mx-5 mb-4 flex gap-1 bg-white/10 rounded-xl p-1">
+          {[{ id: "jobs", label: "Jobs" }, { id: "earnings", label: "Earnings" }].map(t => (
             <button key={t.id} onClick={() => setView(t.id)}
-              className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-colors ${view === t.id ? "bg-white shadow text-gray-900" : "text-gray-500"}`}>
+              className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all ${view === t.id ? "bg-white text-gray-900" : "text-gray-400"}`}>
               {t.label}
             </button>
           ))}
         </div>
 
-        {loading && <div className="flex justify-center py-12"><Loader2 className="w-6 h-6 animate-spin text-amber-500" /></div>}
+        {/* Content area */}
+        <div className="bg-white rounded-t-3xl min-h-[60vh] px-5 pt-5 pb-10">
+          {loading && <div className="flex justify-center py-16"><Loader2 className="w-7 h-7 animate-spin text-amber-500" /></div>}
 
-        {view === "jobs" && !loading && (
-          <>
-            {activeJob && (
-              <div className="bg-gray-900 text-white rounded-2xl p-5 mb-6 shadow-xl">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-amber-400 font-bold text-sm uppercase tracking-wide">🔧 Active Job</span>
-                  <StatusBadge status={activeJob.status} />
+          {view === "jobs" && !loading && (
+            <>
+              {/* Active Job */}
+              {activeJob && (
+                <div className="bg-[#0F0F0F] rounded-2xl p-5 mb-6 shadow-xl">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-amber-400 font-bold text-xs uppercase tracking-widest">🔧 Active Job</span>
+                    <StatusBadge status={activeJob.status} />
+                  </div>
+                  <p className="font-black text-white text-2xl mb-0.5">{activeJob.service_type_name}</p>
+                  <p className="text-amber-400 font-black text-xl mb-4">KES {activeJob.price_kes?.toLocaleString()}</p>
+
+                  <div className="space-y-2 text-sm text-gray-300 mb-4">
+                    <p>👤 <span className="text-white font-semibold">{activeJob.member_name}</span></p>
+                    <p>📱 <a href={`tel:${activeJob.member_phone}`} className="text-amber-400 font-bold text-base">{activeJob.member_phone}</a></p>
+                    <p>🚗 {activeJob.vehicle_type}</p>
+                    <p>📍 {activeJob.location_description}</p>
+                    {activeJob.member_notes && <p>📝 {activeJob.member_notes}</p>}
+                    {activeJob.latitude && (
+                      <a href={`https://maps.google.com/?q=${activeJob.latitude},${activeJob.longitude}`} target="_blank" rel="noreferrer"
+                        className="flex items-center gap-1 text-amber-400 hover:underline">
+                        <Navigation className="w-3.5 h-3.5" /> Open in Google Maps
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="text-xs text-gray-400 block mb-1">Mechanic notes (optional)</label>
+                    <textarea
+                      className="w-full bg-white/10 text-white border border-white/20 rounded-xl p-2.5 text-sm resize-none focus:outline-none focus:ring-1 focus:ring-amber-400"
+                      rows={2}
+                      placeholder="e.g. Nail in tyre, patched successfully"
+                      value={mechanicNotes}
+                      onChange={e => setMechanicNotes(e.target.value)}
+                    />
+                  </div>
+
+                  <Button className="w-full h-13 bg-amber-500 hover:bg-amber-400 text-black font-black py-4 text-base rounded-xl" onClick={advance} disabled={updating}>
+                    {updating ? <Loader2 className="w-5 h-5 animate-spin" /> : NEXT_LABEL[activeJob.status]}
+                  </Button>
                 </div>
-                <p className="font-black text-2xl mb-1">{activeJob.service_type_name}</p>
-                <p className="text-amber-400 font-bold text-xl mb-4">KES {activeJob.price_kes?.toLocaleString()}</p>
-                <div className="space-y-1.5 text-sm text-gray-300 mb-4">
-                  <p>👤 <strong className="text-white">{activeJob.member_name}</strong></p>
-                  <p>📱 <a href={`tel:${activeJob.member_phone}`} className="text-amber-400 font-bold text-lg">{activeJob.member_phone}</a></p>
-                  <p>🚗 {activeJob.vehicle_type}</p>
-                  <p>📍 {activeJob.location_description}</p>
-                  {activeJob.member_notes && <p>📝 {activeJob.member_notes}</p>}
-                  {activeJob.latitude && (
-                    <a href={`https://maps.google.com/?q=${activeJob.latitude},${activeJob.longitude}`} target="_blank" rel="noreferrer"
-                      className="flex items-center gap-1 text-amber-400 hover:underline">
-                      <Navigation className="w-3.5 h-3.5" /> Open in Google Maps
-                    </a>
-                  )}
+              )}
+
+              {/* Pending Jobs */}
+              {!activeJob && pending.length > 0 && (
+                <div className="mb-6">
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-3">Incoming Requests ({pending.length})</p>
+                  <div className="space-y-3">
+                    {pending.map(job => (
+                      <JobCard key={job.id} job={job} actions={
+                        <>
+                          <Button className="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl" onClick={() => accept(job)} disabled={updating}>
+                            {updating ? <Loader2 className="w-4 h-4 animate-spin" /> : "✓ Accept"}
+                          </Button>
+                          <Button variant="outline" className="flex-1 border-red-200 text-red-500 hover:bg-red-50 py-3 rounded-xl" onClick={() => decline(job)} disabled={updating}>
+                            Decline
+                          </Button>
+                        </>
+                      } />
+                    ))}
+                  </div>
                 </div>
+              )}
+
+              {!activeJob && pending.length === 0 && (
+                <div className="text-center py-16">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-gray-300" />
+                  </div>
+                  <p className="font-bold text-gray-500">No pending requests</p>
+                  <p className="text-sm text-gray-400 mt-1">New jobs will pop up automatically.</p>
+                </div>
+              )}
+
+              {todayJobs.length > 0 && (
                 <div className="mb-4">
-                  <label className="text-xs text-gray-400 block mb-1">Mechanic notes (optional)</label>
-                  <textarea
-                    className="w-full bg-gray-800 text-white border border-gray-600 rounded-lg p-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-amber-400"
-                    rows={2}
-                    placeholder="e.g. Nail in tyre, patched successfully"
-                    value={mechanicNotes}
-                    onChange={e => setMechanicNotes(e.target.value)}
-                  />
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-3">Completed Today ({todayJobs.length})</p>
+                  <div className="space-y-2">
+                    {todayJobs.map(job => (
+                      <div key={job.id} className="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">{job.service_type_name}</p>
+                          <p className="text-xs text-gray-400">{job.member_name}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-black text-green-600">KES {Math.round((job.price_kes || 0) * 0.8).toLocaleString()}</p>
+                          <p className="text-xs text-gray-400">your share</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-black py-4 text-lg rounded-xl" onClick={advance} disabled={updating}>
-                  {updating ? <Loader2 className="w-5 h-5 animate-spin" /> : NEXT_LABEL[activeJob.status]}
-                </Button>
-              </div>
-            )}
+              )}
 
-            {!activeJob && pending.length > 0 && (
-              <div className="mb-6">
-                <h2 className="font-bold text-gray-800 mb-3 text-lg">Incoming Requests ({pending.length})</h2>
-                <div className="space-y-3">
-                  {pending.map(job => (
-                    <JobCard key={job.id} job={job} actions={
-                      <>
-                        <Button className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3" onClick={() => accept(job)} disabled={updating}>
-                          {updating ? <Loader2 className="w-4 h-4 animate-spin" /> : "✓ Accept Job"}
-                        </Button>
-                        <Button variant="outline" className="flex-1 border-red-200 text-red-600 hover:bg-red-50 py-3" onClick={() => decline(job)} disabled={updating}>
-                          Decline
-                        </Button>
-                      </>
-                    } />
-                  ))}
+              {history.filter(j => !todayJobs.includes(j)).length > 0 && (
+                <div>
+                  <p className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-3">Recent Jobs</p>
+                  <div className="space-y-2">
+                    {history.filter(j => !todayJobs.includes(j)).slice(0, 8).map(job => (
+                      <JobCard key={job.id} job={job} />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </>
+          )}
 
-            {!activeJob && pending.length === 0 && (
-              <div className="text-center py-10 text-gray-400">
-                <CheckCircle className="w-12 h-12 text-gray-200 mx-auto mb-3" />
-                <p className="font-medium text-gray-500">No pending requests</p>
-                <p className="text-sm mt-1">New jobs will appear here automatically.</p>
+          {view === "earnings" && !loading && (
+            <div className="space-y-4">
+              <div className="bg-[#0F0F0F] rounded-2xl p-5">
+                <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">This Week</p>
+                <p className="text-amber-400 font-black text-4xl">KES {weekEarnings.toLocaleString()}</p>
               </div>
-            )}
-
-            {todayJobs.length > 0 && (
-              <div className="mb-4">
-                <h2 className="font-bold text-gray-800 mb-3">Completed Today ({todayJobs.length})</h2>
+              <div className="bg-gray-50 rounded-2xl p-5">
+                <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">This Month</p>
+                <p className="text-gray-900 font-black text-3xl">KES {monthEarnings.toLocaleString()}</p>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+                <p className="font-bold mb-1">💡 Your Pay</p>
+                <p>You receive <strong>80% of every job fee</strong>. Paid via M-PESA within 24 hours.</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-3">All Completed Jobs ({completed.length})</p>
                 <div className="space-y-2">
-                  {todayJobs.map(job => (
-                    <div key={job.id} className="bg-white border border-gray-100 rounded-xl p-3 shadow-sm flex justify-between items-center">
-                      <div><p className="font-semibold text-gray-900 text-sm">{job.service_type_name}</p><p className="text-xs text-gray-500">{job.member_name}</p></div>
-                      <div className="text-right"><p className="font-black text-green-700">KES {Math.round((job.price_kes || 0) * 0.8).toLocaleString()}</p><p className="text-xs text-gray-400">your share</p></div>
+                  {completed.slice(0, 20).map(job => (
+                    <div key={job.id} className="bg-gray-50 rounded-xl p-3 flex justify-between items-center">
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{job.service_type_name}</p>
+                        <p className="text-xs text-gray-400">{job.member_name} · {format(new Date(job.created_date), "dd MMM")}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-black text-green-600">KES {Math.round((job.price_kes || 0) * 0.8).toLocaleString()}</p>
+                        <p className="text-xs text-gray-400">{job.mechanic_payment_sent ? "✓ Paid" : "Pending"}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
-            )}
-
-            {history.filter(j => !todayJobs.includes(j)).length > 0 && (
-              <div>
-                <h2 className="font-bold text-gray-800 mb-3">Recent Jobs</h2>
-                <div className="space-y-2">
-                  {history.filter(j => !todayJobs.includes(j)).slice(0,8).map(job => (
-                    <JobCard key={job.id} job={job} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </>
-        )}
-
-        {view === "earnings" && !loading && (
-          <div className="space-y-4">
-            <div className="bg-gray-900 text-white rounded-2xl p-5">
-              <TrendingUp className="w-6 h-6 text-amber-400 mb-3" />
-              <p className="text-gray-400 text-sm mb-1">This Week's Earnings</p>
-              <p className="text-4xl font-black text-amber-400">KES {weekEarnings.toLocaleString()}</p>
             </div>
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <p className="text-gray-500 text-sm mb-1">This Month's Earnings</p>
-              <p className="text-3xl font-black text-gray-900">KES {monthEarnings.toLocaleString()}</p>
-            </div>
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-              <p className="font-bold mb-1">💡 How your pay works</p>
-              <p>You receive <strong>80% of every job fee</strong>. Tex Wambui pays you via M-PESA within 24 hours of every confirmed job.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-gray-800 mb-3">Completed Jobs ({completed.length} total)</h3>
-              <div className="space-y-2">
-                {completed.slice(0,20).map(job => (
-                  <div key={job.id} className="bg-white border border-gray-100 rounded-xl p-3 shadow-sm flex justify-between items-center">
-                    <div><p className="font-semibold text-gray-900 text-sm">{job.service_type_name}</p><p className="text-xs text-gray-500">{job.member_name} · {format(new Date(job.created_date), "dd MMM")}</p></div>
-                    <div className="text-right"><p className="font-black text-green-700">KES {Math.round((job.price_kes || 0) * 0.8).toLocaleString()}</p><p className="text-xs text-gray-400">{job.mechanic_payment_sent ? "✓ Paid" : "Pending"}</p></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </PullToRefresh>
     </>
   );
 }
