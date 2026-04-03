@@ -81,10 +81,11 @@ export default function Home() {
     setActiveJob(job);
     setStep("tracking");
     setSubmitting(false);
+    const appUrl = window.location.origin;
     base44.integrations.Core.SendEmail({
       to: "sustainthevoices@gmail.com",
-      subject: `🔧 New Waiyaki Job — ${selectedService.name} — ${form.member_name}`,
-      body: `New job submitted.\n\nJob ID: ${job.id}\nService: ${selectedService.name} — KES ${selectedService.price_kes}\nMember: ${form.member_name}\nPhone: ${form.member_phone}\nVehicle: ${form.vehicle_type}\nLocation: ${form.location_description}\nNotes: ${form.member_notes || "None"}\n\nTime: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}`,
+      subject: `🔧 NEW JOB REQUEST — ${selectedService.name} — Act Now!`,
+      body: `Hi Prince Waiyaki,\n\nYou have a NEW JOB REQUEST on Waiyaki Dispatch. Open the app now to accept it before it expires.\n\n👉 OPEN APP & ACCEPT JOB: ${appUrl}\n\n─────────────────────────\nJOB DETAILS\n─────────────────────────\nService: ${selectedService.name}\nPrice:   KES ${selectedService.price_kes?.toLocaleString()}\n\nCustomer: ${form.member_name}\nPhone:    ${form.member_phone}\nVehicle:  ${form.vehicle_type}\nLocation: ${form.location_description}\nNotes:    ${form.member_notes || "None"}\n─────────────────────────\n\nSTEPS:\n1. Click the link above to open the app\n2. Log in if prompted\n3. Tap ACCEPT on the incoming job alert\n4. Head to the customer location\n\nTime of request: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}\n\n— Waiyaki Dispatch`,
     }).catch(() => {});
   };
 
