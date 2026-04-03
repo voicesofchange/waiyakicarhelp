@@ -57,9 +57,13 @@ export default function MechanicDashboard() {
 
   const accept = async (job) => {
     setUpdating(true);
-    const updated = await base44.entities.Job.update(job.id, { status: "accepted", accepted_at: new Date().toISOString() });
-    setActiveJob(updated);
+    // Optimistic update
+    const optimistic = { ...job, status: "accepted", accepted_at: new Date().toISOString() };
+    setActiveJob(optimistic);
+    setJobs(prev => prev.map(j => j.id === job.id ? optimistic : j));
     setMechanicNotes("");
+    const updated = await base44.entities.Job.update(job.id, { status: "accepted", accepted_at: optimistic.accepted_at });
+    setActiveJob(updated);
     await load();
     setUpdating(false);
     base44.integrations.Core.SendEmail({
@@ -80,6 +84,8 @@ export default function MechanicDashboard() {
     if (!activeJob) return;
     setUpdating(true);
     const next = NEXT_STATUS[activeJob.status];
+    // Optimistic update
+    setActiveJob(prev => prev ? { ...prev, status: next } : null);
     const extra = {};
     if (next === "arrived") extra.arrived_at = new Date().toISOString();
     if (next === "completed") extra.completed_at = new Date().toISOString();

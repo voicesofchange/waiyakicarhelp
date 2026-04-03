@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
@@ -9,6 +10,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import MechanicDashboard from './pages/MechanicDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Settings from './pages/Settings';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -41,6 +43,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/mechanic" element={<MechanicDashboard />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
@@ -49,6 +52,13 @@ const AuthenticatedApp = () => {
 
 
 function App() {
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const apply = (e) => document.documentElement.classList.toggle('dark', e.matches);
+    apply(mq);
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
 
   return (
     <AuthProvider>
