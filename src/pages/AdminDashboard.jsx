@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { base44 } from "@/api/base44Client";
 import { Loader2, DollarSign, CheckCircle, Clock, TrendingUp, Send, Download, X, LogOut } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { format, subDays, startOfDay, isToday, isThisWeek } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import MobileSelect from "@/components/MobileSelect";
 import StatusBadge from "@/components/StatusBadge";
 import PullToRefresh from "@/components/PullToRefresh";
-import { format, isToday, isThisWeek } from "date-fns";
 
 const STATUS_OPTIONS = [
   { value: "all", label: "All Statuses" },
@@ -157,7 +158,25 @@ export default function AdminDashboard() {
     return true;
   });
 
-  const TABS = [{ id: "jobs", label: "Live Jobs" }, { id: "payments", label: "Payments" }, { id: "services", label: "Services" }];
+  const TABS = [{ id: "jobs", label: "Live Jobs" }, { id: "analytics", label: "Analytics" }, { id: "payments", label: "Payments" }, { id: "services", label: "Services" }];
+
+  // Analytics data
+  const last7 = Array.from({ length: 7 }, (_, i) => {
+    const day = subDays(new Date(), 6 - i);
+    const label = format(day, "EEE");
+    const dayStart = startOfDay(day).getTime();
+    const dayEnd = dayStart + 86400000;
+    const dayJobs = jobs.filter(j => j.created_date && new Date(j.created_date).getTime() >= dayStart && new Date(j.created_date).getTime() < dayEnd);
+    const revenue = dayJobs.filter(j => j.status === "completed").reduce((s, j) => s + (j.price_kes || 0), 0);
+    return { label, revenue, jobs: dayJobs.length };
+  });
+
+  const statusCounts = ["pending","accepted","en_route","arrived","completed","cancelled"].map(s => ({
+    name: s.replace("_"," "),
+    value: jobs.filter(j => j.status === s).length,
+  })).filter(s => s.value > 0);
+
+  const PIE_COLORS = ["#f59e0b","#3b82f6","#8b5cf6","#6366f1","#10b981","#ef4444"];
 
   return (
     <PullToRefresh onRefresh={load}>
@@ -264,6 +283,66 @@ export default function AdminDashboard() {
                 ))}
               </div>
             </>
+          )}
+
+          {!loading && tab === "analytics" && (
+            <div className="space-y-6">
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Revenue — Last 7 Days</p>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <ResponsiveContainer width="100%" height={180}>
+                    <BarChart data={last7}>
+                      <XAxis dataKey="label" tick={{ fontSize: 11 }} />
+                      <YAxis tick={{ fontSize: 11 }} tickFormatter={v => v > 0 ? `${v/1000}k` : "0"} />
+                      <Tooltip formatter={(v) => [`KES ${v.toLocaleString()}`, "Revenue"]} />
+                      <Bar dataKey="revenue" fill="#f59e0b" radius={[6,6,0,0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Job Status Breakdown</p>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  {statusCounts.length === 0 ? (
+                    <p className="text-center text-gray-400 py-6">No job data yet.</p>
+                  ) : (
+                    <ResponsiveContainer width="100%" height={200}>
+                      <PieChart>
+                        <Pie data={statusCounts} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={70} label={({ name, value }) => `${name}: ${value}`} labelLine={false}>
+                          {statusCounts.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
+                        </Pie>
+                        <Legend />
+                        <Tooltip />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-xs text-gray-400 uppercase mb-1">Total Revenue</p>
+                  <p className="font-black text-amber-500 text-xl">KES {totalRevenue.toLocaleString()}</p>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-xs text-gray-400 uppercase mb-1">Waiyaki House (20%)</p>
+                  <p className="font-black text-gray-900 text-xl">KES {waiyakiFee.toLocaleString()}</p>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-xs text-gray-400 uppercase mb-1">Prince Earnings (80%)</p>
+                  <p className="font-black text-gray-900 text-xl">KES {mechanicEarnings.toLocaleString()}</p>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-xs text-gray-400 uppercase mb-1">Completion Rate</p>
+                  <p className="font-black text-green-600 text-xl">{jobs.length > 0 ? Math.round((completed.length / jobs.length) * 100) : 0}%</p>
+                </div>
+              </div>
+
+              <Button className="w-full h-12 bg-gray-900 hover:bg-gray-700 text-white font-bold rounded-xl flex items-center gap-2" onClick={exportCSV}>
+                <Download className="w-4 h-4" /> Export Full Report (CSV)
+              </Button>
+            </div>
           )}
 
           {!loading && tab === "payments" && (

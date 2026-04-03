@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
@@ -46,6 +46,25 @@ export default function Home() {
   const [mpesaCode, setMpesaCode] = useState("");
   const [mpesaSubmitting, setMpesaSubmitting] = useState(false);
   const [mpesaSubmitted, setMpesaSubmitted] = useState(false);
+  const prevJobStatus = useRef(null);
+
+  // Browser notification when mechanic is en_route
+  useEffect(() => {
+    if (!activeJob?.status) return;
+    if (prevJobStatus.current && prevJobStatus.current !== activeJob.status && activeJob.status === "en_route") {
+      if ("Notification" in window) {
+        Notification.requestPermission().then(perm => {
+          if (perm === "granted") {
+            new Notification("🚗 Mechanic is on the way!", {
+              body: "Your mechanic has left and is heading to your location.",
+              icon: "/favicon.ico",
+            });
+          }
+        });
+      }
+    }
+    prevJobStatus.current = activeJob.status;
+  }, [activeJob?.status]);
 
   const loadServices = useCallback(async () => {
     const data = await base44.entities.ServiceType.filter({ is_active: true });

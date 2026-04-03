@@ -8,6 +8,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageNotFound from './lib/PageNotFound';
 import Layout from './components/Layout';
 import SmartHome from './pages/SmartHome';
+import MechanicProfile from './pages/MechanicProfile';
 import Settings from './pages/Settings';
 // Add page imports here
 
@@ -41,6 +42,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<SmartHome />} />
         <Route path="/mechanic" element={<SmartHome />} />
         <Route path="/admin" element={<SmartHome />} />
+        <Route path="/mechanic/profile" element={<MechanicProfile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>

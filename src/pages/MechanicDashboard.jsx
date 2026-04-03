@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
+import { UserCircle } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight, Phone, LogOut } from "lucide-react";
 import IncomingJobAlert from "@/components/IncomingJobAlert";
@@ -55,10 +57,27 @@ export default function MechanicDashboard() {
   }, []);
 
   useEffect(() => {
+    // Request browser notification permission
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+
     load();
     loadStatus();
     const i = setInterval(load, 5000);
-    return () => clearInterval(i);
+
+    // Real-time subscribe for instant alerts
+    const unsub = base44.entities.Job.subscribe((event) => {
+      if (event.type === "create" && Notification.permission === "granted") {
+        new Notification("🔧 New Job Request!", {
+          body: `${event.data?.service_type_name} — ${event.data?.member_name}`,
+          icon: "/favicon.ico",
+        });
+      }
+      load();
+    });
+
+    return () => { clearInterval(i); unsub(); };
   }, [load, loadStatus]);
 
   const toggleAvailability = async () => {
@@ -159,6 +178,9 @@ export default function MechanicDashboard() {
               <p className="text-gray-400 text-xs">Mechanic Portal</p>
             </div>
           </div>
+          <Link to="/mechanic/profile" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
+            <UserCircle className="w-4 h-4 text-gray-300" />
+          </Link>
           <button onClick={() => base44.auth.logout()} className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
             <LogOut className="w-4 h-4 text-gray-300" />
           </button>

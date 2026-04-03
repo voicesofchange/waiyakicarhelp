@@ -1,0 +1,43 @@
+{
+  "name": "MechanicProfile",
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "title": "Display Name"
+    },
+    "photo_url": {
+      "type": "string",
+      "title": "Profile Photo URL"
+    },
+    "bio": {
+      "type": "string",
+      "title": "Bio / About"
+    },
+    "years_experience": {
+      "type": "number",
+      "title": "Years Experience"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "certifications": {
+      "type": "array",
+      "title": "Certifications",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialties": {
+      "type": "array",
+      "title": "Specialties",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "display_name"
+  ]
+}
