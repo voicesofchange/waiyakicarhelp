@@ -3,10 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Home, Wrench, LayoutDashboard, Settings, ChevronLeft } from "lucide-react";
 
 const NAV_ITEMS = [
-  { to: "/", label: "Member", icon: Home },
-  { to: "/mechanic", label: "Mechanic", icon: Wrench },
-  { to: "/admin", label: "Admin", icon: LayoutDashboard },
-  { to: "/settings", label: "Settings", icon: Settings },
+  { to: "/", label: "Home", icon: Home },
 ];
 
 const ROOT_PATHS = ["/", "/mechanic", "/admin", "/settings"];
