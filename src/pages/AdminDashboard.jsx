@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { Loader2, DollarSign, CheckCircle, Clock, Star, TrendingUp, Send } from "lucide-react";
+import { Loader2, DollarSign, CheckCircle, Clock, Star, TrendingUp, Send, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import StatusBadge from "@/components/StatusBadge";
@@ -55,6 +55,34 @@ export default function AdminDashboard() {
     await load();
   };
 
+  const exportCSV = () => {
+    const headers = ["Job Id","Date","Member Name","Member Phone","Service Type","Vehicle Type","Location Description","Status","Mechanic Response","Mechanic Notes","Payment Status","Amount(KES)","MPESA-Confirmation","Rating"];
+    const rows = jobs.map(j => [
+      j.id,
+      j.created_date ? format(new Date(j.created_date), "dd/MM/yyyy HH:mm") : "",
+      j.member_name,
+      j.member_phone,
+      j.service_type_name,
+      j.vehicle_type,
+      j.location_description,
+      j.status,
+      j.accepted_at ? format(new Date(j.accepted_at), "dd/MM/yyyy HH:mm") : "",
+      j.mechanic_notes || "",
+      j.payment_status,
+      j.price_kes || "",
+      j.mpesa_reference || "",
+      j.rating_stars || "",
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `WaiyakiDispatch_Jobs_${format(new Date(), "yyyyMMdd")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   // Stats
   const completed = jobs.filter(j => j.status === "completed");
   const totalRevenue = completed.reduce((s, j) => s + (j.price_kes || 0), 0);
@@ -75,10 +103,13 @@ export default function AdminDashboard() {
         <div className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center">
           <span className="text-gray-900 font-black text-lg">T</span>
         </div>
-        <div>
+        <div className="flex-1">
           <h1 className="font-black text-gray-900 text-xl">Admin Dashboard</h1>
           <p className="text-sm text-gray-500">Tex Wambui · Waiyaki House LLC</p>
         </div>
+      <Button variant="outline" size="sm" onClick={exportCSV} className="flex items-center gap-1.5 text-sm">
+        <Download className="w-4 h-4" /> Export CSV
+      </Button>
       </div>
 
       {loading ? (
