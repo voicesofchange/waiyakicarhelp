@@ -1,0 +1,27 @@
+{
+  "name": "AvailabilityBlock",
+  "type": "object",
+  "properties": {
+    "day_of_week": {
+      "type": "number",
+      "title": "Day of Week (0=Sun, 6=Sat)"
+    },
+    "start_hour": {
+      "type": "number",
+      "title": "Start Hour (0-23)"
+    },
+    "end_hour": {
+      "type": "number",
+      "title": "End Hour (1-24)"
+    },
+    "label": {
+      "type": "string",
+      "title": "Label (optional)"
+    }
+  },
+  "required": [
+    "day_of_week",
+    "start_hour",
+    "end_hour"
+  ]
+}

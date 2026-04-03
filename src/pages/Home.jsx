@@ -39,6 +39,7 @@ export default function Home() {
   const [errors, setErrors] = useState({});
   const [locating, setLocating] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [unavailable, setUnavailable] = useState(false);
   const [activeJob, setActiveJob] = useState(null);
   const [rating, setRating] = useState(0);
   const [ratingNote, setRatingNote] = useState("");
@@ -69,6 +70,21 @@ export default function Home() {
   const loadServices = useCallback(async () => {
     const data = await base44.entities.ServiceType.filter({ is_active: true });
     setServices(data);
+    // Check mechanic availability (status toggle + schedule)
+    const [statusRecords, blocks] = await Promise.all([
+      base44.entities.MechanicStatus.list(),
+      base44.entities.AvailabilityBlock.list(),
+    ]);
+    const isOnline = statusRecords.length > 0 ? statusRecords[0].is_available : false;
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const currentHour = now.getHours();
+    const inWindow = blocks.some(b =>
+      b.day_of_week === dayOfWeek &&
+      currentHour >= b.start_hour &&
+      currentHour < b.end_hour
+    );
+    setUnavailable(!isOnline || (blocks.length > 0 && !inWindow));
   }, []);
 
   useEffect(() => { loadServices(); }, [loadServices]);
@@ -196,9 +212,17 @@ export default function Home() {
             </div>
             <div className="flex-1 bg-white rounded-t-3xl px-5 pt-6 pb-8">
               <p className="text-gray-500 text-sm font-medium mb-4 uppercase tracking-wide">Choose a service</p>
-              {services.length === 0 ? (
+              {unavailable && (
+                <div className="mb-4 bg-red-50 border-2 border-red-200 rounded-2xl p-4 text-center">
+                  <p className="text-2xl mb-1">🔴</p>
+                  <p className="font-black text-red-800 text-base">Mechanic Unavailable</p>
+                  <p className="text-red-600 text-sm mt-1">Our mechanic is currently offline or outside working hours. Please call <strong>0712 550 245</strong> or try again later.</p>
+                </div>
+              )}
+              {services.length === 0 && !unavailable && (
                 <div className="flex items-center justify-center py-16"><Loader2 className="w-7 h-7 animate-spin text-amber-500" /></div>
-              ) : (
+              )}
+              {!unavailable && services.length > 0 && (
                 <div className="space-y-3">
                   {services.map(s => (
                     <button key={s.id} onClick={() => { setSelectedService(s); setStep("form"); }}

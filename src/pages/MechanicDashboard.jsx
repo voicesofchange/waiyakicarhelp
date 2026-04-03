@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import JobCard from "@/components/JobCard";
 import StatusBadge from "@/components/StatusBadge";
 import PullToRefresh from "@/components/PullToRefresh";
+import WeeklySchedule from "@/components/WeeklySchedule";
 import { format, startOfWeek, startOfMonth } from "date-fns";
 
 const NEXT_STATUS = { accepted: "en_route", en_route: "arrived", arrived: "completed" };
@@ -206,7 +207,7 @@ export default function MechanicDashboard() {
 
         {/* Tabs */}
         <div className="mx-5 mb-4 flex gap-1 bg-white/10 rounded-xl p-1">
-          {[{ id: "jobs", label: "Jobs" }, { id: "earnings", label: "Earnings" }].map(t => (
+          {[{ id: "jobs", label: "Jobs" }, { id: "schedule", label: "Schedule" }, { id: "earnings", label: "Earnings" }].map(t => (
             <button key={t.id} onClick={() => setView(t.id)}
               className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all ${view === t.id ? "bg-white text-gray-900" : "text-gray-400"}`}>
               {t.label}
@@ -323,6 +324,10 @@ export default function MechanicDashboard() {
                 </div>
               )}
             </>
+          )}
+
+          {view === "schedule" && (
+            <WeeklySchedule />
           )}
 
           {view === "earnings" && !loading && (
