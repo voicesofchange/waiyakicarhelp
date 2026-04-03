@@ -154,6 +154,14 @@ export default function Home() {
           <p className="text-green-800 text-sm font-semibold">💳 Payment via M-PESA only after job is complete.</p>
           <p className="text-green-700 text-xs mt-1">No cash. No upfront payment.</p>
         </div>
+        <div className="mt-8 text-center">
+          <button
+            onClick={() => base44.auth.redirectToLogin(window.location.origin + '/mechanic')}
+            className="text-xs text-gray-300 hover:text-gray-500 transition-colors"
+          >
+            Staff Login
+          </button>
+        </div>
       </div>
     </PullToRefresh>
   );
