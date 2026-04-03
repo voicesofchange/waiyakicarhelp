@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import MechanicDashboard from './pages/MechanicDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Settings from './pages/Settings';
+import ProtectedRoute from './components/ProtectedRoute';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -41,9 +42,9 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/mechanic" element={<MechanicDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/mechanic" element={<ProtectedRoute><MechanicDashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
