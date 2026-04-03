@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { base44 } from "@/api/base44Client";
 import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight } from "lucide-react";
+import IncomingJobAlert from "@/components/IncomingJobAlert";
 import { Button } from "@/components/ui/button";
 import JobCard from "@/components/JobCard";
 import StatusBadge from "@/components/StatusBadge";
@@ -14,6 +15,9 @@ export default function MechanicDashboard() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeJob, setActiveJob] = useState(null);
+  const [incomingJob, setIncomingJob] = useState(null);
+  const seenJobIds = useRef(new Set());
+  const [accepting, setAccepting] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [mechanicNotes, setMechanicNotes] = useState("");
   const [statusRecord, setStatusRecord] = useState(null);
@@ -26,6 +30,15 @@ export default function MechanicDashboard() {
     const active = all.find(j => ["accepted","en_route","arrived"].includes(j.status));
     if (active) { setActiveJob(active); setMechanicNotes(active.mechanic_notes || ""); }
     else setActiveJob(null);
+
+    // Detect new pending jobs (Uber-style alert)
+    const pendingJobs = all.filter(j => j.status === "pending");
+    const newJob = pendingJobs.find(j => !seenJobIds.current.has(j.id));
+    pendingJobs.forEach(j => seenJobIds.current.add(j.id));
+    if (newJob && !active) {
+      setIncomingJob(newJob);
+    }
+
     setLoading(false);
   }, []);
 
@@ -61,6 +74,8 @@ export default function MechanicDashboard() {
   };
 
   const accept = async (job) => {
+    setIncomingJob(null);
+    setAccepting(true);
     setUpdating(true);
     // Optimistic update
     const optimistic = { ...job, status: "accepted", accepted_at: new Date().toISOString() };
@@ -71,6 +86,7 @@ export default function MechanicDashboard() {
     setActiveJob(updated);
     await load();
     setUpdating(false);
+    setAccepting(false);
     base44.integrations.Core.SendEmail({
       to: "sustainthevoices@gmail.com",
       subject: `✅ Job Accepted — ${job.service_type_name} — ${job.member_name}`,
@@ -79,6 +95,7 @@ export default function MechanicDashboard() {
   };
 
   const decline = async (job) => {
+    setIncomingJob(null);
     setUpdating(true);
     await base44.entities.Job.update(job.id, { status: "cancelled" });
     await load();
@@ -120,6 +137,15 @@ export default function MechanicDashboard() {
   const todayJobs = completed.filter(j => format(new Date(j.created_date), "yyyy-MM-dd") === format(now, "yyyy-MM-dd"));
 
   return (
+    <>
+    {incomingJob && (
+      <IncomingJobAlert
+        job={incomingJob}
+        onAccept={accept}
+        onDecline={decline}
+        accepting={accepting}
+      />
+    )}
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="max-w-lg mx-auto px-4 py-6">
         {/* Header */}
@@ -285,5 +311,6 @@ export default function MechanicDashboard() {
         )}
       </div>
     </PullToRefresh>
+    </>
   );
 }
