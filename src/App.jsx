@@ -39,6 +39,8 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<SmartHome />} />
+        <Route path="/mechanic" element={<SmartHome />} />
+        <Route path="/admin" element={<SmartHome />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
