@@ -1,6 +1,6 @@
-import { Outlet, useLocation, Link } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Wrench, LayoutDashboard, Settings } from "lucide-react";
+import { Home, Wrench, LayoutDashboard, Settings, ChevronLeft } from "lucide-react";
 
 const NAV_ITEMS = [
   { to: "/", label: "Member", icon: Home },
@@ -9,35 +9,52 @@ const NAV_ITEMS = [
   { to: "/settings", label: "Settings", icon: Settings },
 ];
 
+const ROOT_PATHS = ["/", "/mechanic", "/admin", "/settings"];
+
 const pageVariants = {
   initial: { opacity: 0, x: 24 },
   animate: { opacity: 1, x: 0, transition: { duration: 0.22, ease: "easeOut" } },
   exit: { opacity: 0, x: -24, transition: { duration: 0.15, ease: "easeIn" } },
 };
 
+const HEADER_TITLES = {
+  "/": "Tyre Service · Limuru",
+  "/mechanic": "Prince Waiyaki · Mechanic",
+  "/admin": "Tex Wambui · Admin",
+  "/settings": "Settings",
+};
+
 export default function Layout() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const isRoot = ROOT_PATHS.includes(pathname);
 
   return (
     <div className="min-h-screen bg-stone-50 flex flex-col" style={{ paddingTop: "env(safe-area-inset-top)" }}>
       {/* Sticky top header */}
-      <header className="sticky top-0 z-40 bg-gray-900 text-white px-4 flex items-center shadow-md" style={{ minHeight: 52 }}>
+      <header className="sticky top-0 z-40 bg-gray-900 text-white px-4 flex items-center gap-3 shadow-md" style={{ minHeight: 52 }}>
+        {!isRoot && (
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1 text-amber-400 font-semibold text-sm -ml-1"
+          >
+            <ChevronLeft className="w-5 h-5" />
+            Back
+          </button>
+        )}
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-amber-500 rounded-lg flex items-center justify-center">
+          <div className="w-7 h-7 bg-amber-500 rounded-lg flex items-center justify-center shrink-0">
             <span className="text-gray-900 font-black text-sm">W</span>
           </div>
           <span className="font-black text-lg tracking-tight">WAIYAKI</span>
         </div>
-        <div className="ml-auto text-xs text-gray-400">
-          {pathname === "/" && "Tyre Service · Limuru"}
-          {pathname === "/mechanic" && "Prince Waiyaki · Mechanic"}
-          {pathname === "/admin" && "Tex Wambui · Admin"}
-          {pathname === "/settings" && "Settings"}
+        <div className="ml-auto text-xs text-gray-400 truncate">
+          {HEADER_TITLES[pathname] ?? ""}
         </div>
       </header>
 
-      {/* Page content */}
-      <main className="flex-1 overflow-y-auto pb-20">
+      {/* Page content with preserved scroll per tab */}
+      <main className="flex-1 overflow-hidden pb-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}
@@ -45,6 +62,7 @@ export default function Layout() {
             initial="initial"
             animate="animate"
             exit="exit"
+            className="h-full"
           >
             <Outlet />
           </motion.div>
@@ -62,7 +80,7 @@ export default function Layout() {
             <Link
               key={to}
               to={to}
-              className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 select-none tap-highlight-transparent transition-colors ${
+              className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 select-none transition-colors ${
                 active ? "text-amber-400" : "text-gray-400 hover:text-gray-200"
               }`}
             >
