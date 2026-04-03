@@ -28,7 +28,10 @@ const slide = {
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const step = searchParams.get("step") || "select";
-  const setStep = (s) => s === "select" ? setSearchParams({}) : setSearchParams({ step: s });
+  // Use replace:false (push) so each step is a separate history entry → back button works
+  const setStep = (s) => s === "select"
+    ? setSearchParams({}, { replace: false })
+    : setSearchParams({ step: s }, { replace: false });
 
   const [services, setServices] = useState([]);
   const [selectedService, setSelectedService] = useState(null);

@@ -57,7 +57,14 @@ export default function SmartHome() {
             return (
               <button
                 key={tab.id}
-                onClick={() => navigate(tab.path)}
+                onClick={() => {
+                  if (currentTab.id === tab.id) {
+                    // Reset tab — clears any search params (e.g. booking steps)
+                    navigate(tab.path, { replace: true });
+                  } else {
+                    navigate(tab.path);
+                  }
+                }}
                 className={`flex-1 flex flex-col items-center py-2.5 gap-1 transition-colors ${
                   active ? "text-amber-400" : "text-gray-500"
                 }`}
