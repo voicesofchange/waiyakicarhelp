@@ -7,11 +7,8 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageNotFound from './lib/PageNotFound';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import MechanicDashboard from './pages/MechanicDashboard';
-import AdminDashboard from './pages/AdminDashboard';
+import SmartHome from './pages/SmartHome';
 import Settings from './pages/Settings';
-import ProtectedRoute from './components/ProtectedRoute';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -41,10 +38,8 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/mechanic" element={<ProtectedRoute><MechanicDashboard /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        <Route path="/" element={<SmartHome />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
