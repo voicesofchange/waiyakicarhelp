@@ -1,0 +1,16 @@
+{
+  "name": "MechanicStatus",
+  "type": "object",
+  "properties": {
+    "is_available": {
+      "type": "boolean",
+      "title": "Is Available",
+      "default": true
+    },
+    "last_active": {
+      "type": "string",
+      "title": "Last Active"
+    }
+  },
+  "required": []
+}

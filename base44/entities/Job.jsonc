@@ -33,6 +33,10 @@
       "type": "string",
       "title": "Location Description"
     },
+    "member_notes": {
+      "type": "string",
+      "title": "Member Notes"
+    },
     "latitude": {
       "type": "number",
       "title": "Latitude"
@@ -58,19 +62,28 @@
       "type": "string",
       "title": "Mechanic Notes"
     },
+    "admin_notes": {
+      "type": "string",
+      "title": "Admin Notes"
+    },
     "payment_status": {
       "type": "string",
       "title": "Payment Status",
       "enum": [
         "unpaid",
         "paid_to_waiyaki",
-        "paid_to_mechanic"
+        "confirmed",
+        "mechanic_paid"
       ],
       "default": "unpaid"
     },
     "mpesa_reference": {
       "type": "string",
-      "title": "M-PESA Reference"
+      "title": "M-PESA Reference (Member)"
+    },
+    "admin_mpesa_reference": {
+      "type": "string",
+      "title": "M-PESA Reference (Admin Verified)"
     },
     "mechanic_payment_sent": {
       "type": "boolean",
@@ -88,6 +101,10 @@
     "accepted_at": {
       "type": "string",
       "title": "Accepted At"
+    },
+    "arrived_at": {
+      "type": "string",
+      "title": "Arrived At"
     },
     "completed_at": {
       "type": "string",
