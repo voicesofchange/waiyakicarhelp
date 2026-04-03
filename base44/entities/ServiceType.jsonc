@@ -1,0 +1,31 @@
+{
+  "name": "ServiceType",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Service Name"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "price_kes": {
+      "type": "number",
+      "title": "Price (KES)"
+    },
+    "duration_estimate": {
+      "type": "string",
+      "title": "Est. Duration"
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "Active",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "price_kes"
+  ]
+}

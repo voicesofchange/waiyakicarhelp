@@ -1,0 +1,104 @@
+{
+  "name": "Job",
+  "type": "object",
+  "properties": {
+    "member_name": {
+      "type": "string",
+      "title": "Member Name"
+    },
+    "member_phone": {
+      "type": "string",
+      "title": "Member Phone (M-PESA)"
+    },
+    "service_type_name": {
+      "type": "string",
+      "title": "Service Type"
+    },
+    "price_kes": {
+      "type": "number",
+      "title": "Price (KES)"
+    },
+    "vehicle_type": {
+      "type": "string",
+      "title": "Vehicle Type",
+      "enum": [
+        "Regular Car / Saloon",
+        "SUV / 4WD",
+        "Truck / Lorry",
+        "Matatu / Minibus",
+        "Pickup"
+      ]
+    },
+    "location_description": {
+      "type": "string",
+      "title": "Location Description"
+    },
+    "latitude": {
+      "type": "number",
+      "title": "Latitude"
+    },
+    "longitude": {
+      "type": "number",
+      "title": "Longitude"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "accepted",
+        "en_route",
+        "arrived",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "mechanic_notes": {
+      "type": "string",
+      "title": "Mechanic Notes"
+    },
+    "payment_status": {
+      "type": "string",
+      "title": "Payment Status",
+      "enum": [
+        "unpaid",
+        "paid_to_waiyaki",
+        "paid_to_mechanic"
+      ],
+      "default": "unpaid"
+    },
+    "mpesa_reference": {
+      "type": "string",
+      "title": "M-PESA Reference"
+    },
+    "mechanic_payment_sent": {
+      "type": "boolean",
+      "title": "Mechanic Payment Sent",
+      "default": false
+    },
+    "rating_stars": {
+      "type": "number",
+      "title": "Rating (Stars)"
+    },
+    "rating_note": {
+      "type": "string",
+      "title": "Rating Note"
+    },
+    "accepted_at": {
+      "type": "string",
+      "title": "Accepted At"
+    },
+    "completed_at": {
+      "type": "string",
+      "title": "Completed At"
+    }
+  },
+  "required": [
+    "member_name",
+    "member_phone",
+    "service_type_name",
+    "vehicle_type",
+    "location_description"
+  ]
+}
