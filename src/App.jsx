@@ -10,6 +10,8 @@ import Layout from './components/Layout';
 import SmartHome from './pages/SmartHome';
 import MechanicProfile from './pages/MechanicProfile';
 import Settings from './pages/Settings';
+import AdminChat from './pages/AdminChat';
+import MechanicChat from './pages/MechanicChat';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -44,6 +46,8 @@ const AuthenticatedApp = () => {
         <Route path="/admin" element={<SmartHome />} />
         <Route path="/mechanic/profile" element={<MechanicProfile />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/admin/chat" element={<AdminChat />} />
+        <Route path="/mechanic/chat" element={<MechanicChat />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

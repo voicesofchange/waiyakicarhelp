@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { base44 } from "@/api/base44Client";
-import { Loader2, DollarSign, CheckCircle, Clock, TrendingUp, Send, Download, X, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Loader2, DollarSign, CheckCircle, Clock, TrendingUp, Send, Download, X, LogOut, Bot } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import { format, subDays, startOfDay, isToday, isThisWeek } from "date-fns";
 import { Button } from "@/components/ui/button";
@@ -193,6 +194,9 @@ export default function AdminDashboard() {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <Link to="/admin/chat" className="w-9 h-9 bg-amber-500 rounded-full flex items-center justify-center">
+              <Bot className="w-4 h-4 text-black" />
+            </Link>
             <button onClick={exportCSV} className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
               <Download className="w-4 h-4 text-gray-300" />
             </button>

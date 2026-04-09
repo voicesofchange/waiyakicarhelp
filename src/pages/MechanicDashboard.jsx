@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import { UserCircle } from "lucide-react";
 import { base44 } from "@/api/base44Client";
-import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight, Phone, LogOut } from "lucide-react";
+import { CheckCircle, Navigation, Loader2, TrendingUp, ToggleLeft, ToggleRight, Phone, LogOut, Bot } from "lucide-react";
 import IncomingJobAlert from "@/components/IncomingJobAlert";
 import { Button } from "@/components/ui/button";
 import JobCard from "@/components/JobCard";
@@ -179,6 +179,9 @@ export default function MechanicDashboard() {
               <p className="text-gray-400 text-xs">Mechanic Portal</p>
             </div>
           </div>
+          <Link to="/mechanic/chat" className="w-9 h-9 bg-amber-500 rounded-full flex items-center justify-center">
+            <Bot className="w-4 h-4 text-black" />
+          </Link>
           <Link to="/mechanic/profile" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
             <UserCircle className="w-4 h-4 text-gray-300" />
           </Link>
