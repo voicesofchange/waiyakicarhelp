@@ -6,17 +6,17 @@ const STEPS = [
 ];
 
 const SERVICES = [
-  { category: "🔧 Tyre Services", service: "Puncture Repair (Tubeless)", price: "KES 500" },
-  { category: "🔧 Tyre Services", service: "Puncture Repair (Tube Tyre)", price: "KES 400" },
-  { category: "🔧 Tyre Services", service: "Tyre Change (Spare Swap)", price: "KES 500" },
-  { category: "🔧 Tyre Services", service: "Tyre Change + Balancing", price: "KES 800" },
-  { category: "🔧 Tyre Services", service: "Tyre Inflation (4 tyres)", price: "KES 200" },
-  { category: "🔧 Tyre Services", service: "Tyre Removal & Refit", price: "KES 600" },
-  { category: "⚡ Battery & Electrical", service: "Jump Start (Dead Battery)", price: "KES 400" },
-  { category: "⚡ Battery & Electrical", service: "Battery Replacement (supply + fit)", price: "KES 2,500+" },
+  { category: "🔧 Tyre Services", service: "Puncture Repair (Tubeless)", price: "KES 200-400" },
+  { category: "🔧 Tyre Services", service: "Puncture Repair (Tube Tyre)", price: "KES 200-400" },
+  { category: "🔧 Tyre Services", service: "Tyre Change (Spare Swap)", price: "KES 300" },
+  { category: "🔧 Tyre Services", service: "Tyre Change + Balancing", price: "KES 600" },
+  { category: "🔧 Tyre Services", service: "Tyre Inflation (4 tyres)", price: "KES 122" },
+  { category: "🔧 Tyre Services", service: "Tyre Removal & Refit", price: "KES 535" },
+  { category: "⚡ Battery & Electrical", service: "Jump Start (Dead Battery)", price: "KES 385" },
+  { category: "⚡ Battery & Electrical", service: "Battery Replacement (supply + fit)", price: "KES 10,000+" },
   { category: "⛽ Fuel & Fluids", service: "Emergency Fuel Delivery (up to 5L)", price: "KES 300 + fuel" },
   { category: "⛽ Fuel & Fluids", service: "Engine Coolant Top-Up", price: "KES 300" },
-  { category: "🚗 Vehicle Recovery", service: "Towing Coordination (local, up to 10km)", price: "KES 1,500" },
+  { category: "🚗 Vehicle Recovery", service: "Towing Coordination (local, up to 10km)", price: "KES 10,000" },
   { category: "🔩 Minor Roadside Fixes", service: "Loose / Fallen Belt Re-fitting", price: "KES 500" },
 ];
 
