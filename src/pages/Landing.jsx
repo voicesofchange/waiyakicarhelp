@@ -908,7 +908,7 @@ export default function Landing() {
                 </div>
               </div>
               <p className="text-blue-200/50 text-xs max-w-xs leading-relaxed">
-                Coordinating roadside tyre assistance across Kenya's road corridors. Starting in Limuru. Building the infrastructure that scales.
+                A circular economy built for Kenya — tyre services, mechanic empowerment, environmental restoration, and community consultancy. Starting in Limuru. Scaling the loop.
               </p>
             </div>
             <div className="text-sm space-y-2">
