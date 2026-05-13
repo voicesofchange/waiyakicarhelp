@@ -119,28 +119,31 @@
     "location_description"
   ],
   "rls": {
-    "create": {},
+    "create": {
+      "created_by": "{{user.email}}"
+    },
     "read": {
       "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
         {
           "user_condition": {
             "role": "admin"
           }
-        },
-        {
-          "created_by": "{{user.email}}"
         }
       ]
     },
     "update": {
       "$or": [
         {
+          "created_by": "{{user.email}}",
+          "data.status": "pending"
+        },
+        {
           "user_condition": {
             "role": "admin"
           }
-        },
-        {
-          "created_by": "{{user.email}}"
         }
       ]
     },
