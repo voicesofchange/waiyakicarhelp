@@ -51,7 +51,7 @@ export default function LandingMechanicDefinition() {
             "A mechanic is a skill expert — a practitioner whose expertise, knowledge, and experience directly addresses the daily consumption needs of individuals and communities."
           </blockquote>
           <p className="text-blue-100/70 max-w-2xl mx-auto text-sm leading-relaxed">
-            This definition expands beyond automotive repair. Our contractor network includes anyone whose skilled, knowledge-based labour meets a recurring human need on the road — tyre specialists, battery technicians, fuel delivery experts, recovery coordinators, and more. Every one of them is a professional. Every one of them deserves dignity, fair pay, and a formal identity in Kenya's economy.
+            This definition expands beyond automotive repair. Our contractor network includes anyone whose skilled, knowledge-based labour meets a recurring human need on the road. Every one of them is a professional. Every one of them deserves dignity, fair pay, and a formal identity in Kenya's economy. And under our principle of <strong className="text-[#F59E0B]">collective responsibility</strong>, the entire Waiyaki House community — drivers, investors, NGOs, and communities — is accountable for ensuring that dignity is upheld.
           </p>
         </div>
       </div>

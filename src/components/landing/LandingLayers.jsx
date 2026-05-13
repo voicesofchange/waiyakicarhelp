@@ -30,8 +30,8 @@ export default function LandingLayers() {
           <span className="text-blue-300 font-bold text-sm uppercase tracking-widest">Framework</span>
           <h2 className="text-4xl font-black mt-3 mb-4">Three Reinforcing Layers of a Circular Economy</h2>
           <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
-            Waiyaki House is designed so that each layer feeds the next. Mobility generates economic participation. Economic participation generates data and community wealth. That wealth funds restoration, consultancy, and social infrastructure — which loops back to strengthen mobility demand.
-          </p>
+              Collective responsibility means no single layer can thrive in isolation. Mobility generates economic participation. Economic participation generates community wealth. That wealth funds restoration, consultancy, and social infrastructure — which loops back to strengthen mobility demand. Each layer is everyone's responsibility.
+            </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {LAYERS.map(layer => (

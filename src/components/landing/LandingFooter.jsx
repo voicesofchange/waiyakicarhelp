@@ -12,7 +12,7 @@ export default function LandingFooter() {
               </div>
             </div>
             <p className="text-blue-200/50 text-xs max-w-xs leading-relaxed">
-              A circular economy built for Kenya — roadside assistance services, skill expert empowerment, environmental restoration, and community consultancy. Starting in Limuru. Scaling the loop.
+              A circular economy of collective responsibility — roadside assistance, skill expert empowerment, environmental restoration, and community consultancy. Every participant holds a shared stake. Starting in Limuru. Scaling the loop.
             </p>
           </div>
           <div className="text-sm space-y-2">

@@ -97,7 +97,7 @@ export default function LandingPartner() {
           <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Collaborate</span>
           <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Partner With Waiyaki House</h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            A circular economy needs participants at every layer. Whether you invest capital, contribute skills, bring a fleet, or champion the environment — there is a place for you in the loop. Here is exactly who we need, and what we offer in return.
+            Collective responsibility means the loop only works when everyone shows up. Whether you invest capital, contribute skills, bring a fleet, or champion the environment — there is a place for you in the loop, and a shared stake in its success. Here is exactly who we need, and what we offer in return.
           </p>
         </div>
 

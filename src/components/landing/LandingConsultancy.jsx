@@ -47,7 +47,7 @@ export default function LandingConsultancy() {
           </span>
           <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Knowledge Is the Final Layer of the Loop.</h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            A circular economy is only sustainable when communities have the knowledge to defend their rights, steward their environment, and resolve their conflicts. Waiyaki House offers independent consultancy in law, environmental stewardship, and facilitation — open to all Kenyans, not just those who can afford it.
+            Collective responsibility requires that knowledge — legal, environmental, and facilitative — belongs to everyone. A circular economy cannot survive when only some communities can defend their rights. Waiyaki House offers independent consultancy open to all Kenyans, embedding shared accountability into every engagement.
           </p>
         </div>
 

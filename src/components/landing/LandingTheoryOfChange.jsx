@@ -21,7 +21,7 @@ export default function LandingTheoryOfChange() {
         <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Theory of Change</span>
         <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Why the Circular Model Works</h2>
         <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-          Waiyaki House creates a closed loop where every participant benefits. Drivers get reliable service. Skill experts — mechanics, technicians, and specialists whose expertise addresses daily community needs — get dignity and income. Communities get environmental restoration, legal support, and a stronger local economy.
+          Collective responsibility is the engine of change. Waiyaki House creates a closed loop where every participant is accountable to every other. Drivers pay fairly. Skill experts deliver reliably. Investors fund with purpose. Communities protect and steward. No one extracts — everyone contributes, everyone benefits.
         </p>
         <div className="grid md:grid-cols-2 gap-8 text-left">
           <div className="bg-[#EFF6FF] rounded-2xl p-8 border border-blue-100">

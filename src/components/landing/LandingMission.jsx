@@ -23,7 +23,7 @@ export default function LandingMission() {
         <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Our Mission</span>
         <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Four Pillars. One Reinforcing Loop.</h2>
         <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-          Waiyaki House is built on a circular economy principle: value generated in one pillar flows directly into the next, compounding impact across mobility, livelihoods, environment, and community knowledge.
+          Waiyaki House is built on a circular economy of <strong className="text-[#0D1B2A]">collective responsibility</strong>: every participant — driver, skill expert, investor, community — holds a shared stake in making the loop work. Value generated in one pillar flows directly into the next, compounding impact across mobility, livelihoods, environment, and community knowledge.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {PILLARS.map(item => (

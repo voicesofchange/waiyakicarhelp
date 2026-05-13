@@ -40,7 +40,7 @@ export default function LandingSDGs() {
           </span>
           <h2 className="text-4xl font-black mb-4">Built for People, Planet &amp; Prosperity.</h2>
           <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed mb-16">
-            Waiyaki House is not just a business — it is a deliberately circular response to Kenya's development challenges. Every job dispatched advances multiple UN SDGs simultaneously, because the circular model ensures value flows outward rather than being extracted.
+            Collective responsibility means Kenya's development goals cannot be achieved by any single actor. Waiyaki House is not just a business — it is a shared commitment to circular progress. Every job dispatched advances multiple UN SDGs simultaneously, because the circular model ensures value flows outward and is owned by all.
           </p>
         </div>
 
