@@ -13,6 +13,7 @@ import MechanicProfile from './pages/MechanicProfile';
 import Settings from './pages/Settings';
 import AdminChat from './pages/AdminChat';
 import MechanicChat from './pages/MechanicChat';
+import MechanicInsights from './pages/MechanicInsights';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -50,6 +51,7 @@ const AuthenticatedApp = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/admin/chat" element={<AdminChat />} />
         <Route path="/mechanic/chat" element={<MechanicChat />} />
+        <Route path="/mechanic/insights" element={<MechanicInsights />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
