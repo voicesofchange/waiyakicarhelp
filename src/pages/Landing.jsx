@@ -36,7 +36,7 @@ export default function Landing() {
     <div className="min-h-screen bg-white font-sans text-gray-900">
 
       {/* TOP NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1B2A]/97 backdrop-blur border-b border-white/10 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1B2A] border-b border-white/5 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <button onClick={() => setActiveTab("about")} className="flex items-center gap-2 flex-shrink-0">
