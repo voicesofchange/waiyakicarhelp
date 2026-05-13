@@ -29,9 +29,7 @@ export default function Landing() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center">
-              <span className="text-black font-black text-sm">W</span>
-            </div>
+            <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-10 w-10 object-contain rounded-lg" />
             <div>
               <p className="font-black text-gray-900 text-sm leading-tight">WAIYAKI CAR HELP</p>
               <p className="text-xs text-gray-400 leading-tight">by Waiyaki House LLC</p>
@@ -486,9 +484,7 @@ export default function Landing() {
           <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 bg-amber-500 rounded-md flex items-center justify-center">
-                  <span className="text-black font-black text-xs">W</span>
-                </div>
+                <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-8 w-8 object-contain rounded-md" />
                 <div>
                   <p className="text-white font-black text-sm">Waiyaki Car Help</p>
                   <p className="text-gray-500 text-xs">A Waiyaki House LLC Product</p>
