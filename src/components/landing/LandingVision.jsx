@@ -1,0 +1,69 @@
+const GOALS = [
+  "Prove the circular loop in Limuru — mobility, income, community, environment",
+  "Expand the loop to Nairobi, Nakuru, and Thika corridors",
+  "Build a certified network of 100+ contracted skill experts reinvesting in their communities",
+  "Introduce fleet contracts that fund deeper environmental restoration",
+  "Partner with insurers, NGOs, and DFIs to co-finance community infrastructure",
+  "Launch consultancy and dialogue services across all active corridors",
+];
+
+const PHASES = [
+  {
+    label: "Phase 1 — Pilot (Now)",
+    border: "border-[#F59E0B]",
+    bg: "bg-[#FEF9C3]",
+    textColor: "text-[#0D1B2A]",
+    bodyColor: "text-yellow-900",
+    desc: "One skill expert. Limuru area. Prove the loop works: driver pays → expert earns → revenue funds community → community strengthens demand. Every job is a proof point for the whole model.",
+  },
+  {
+    label: "Phase 2 — Corridor Expansion",
+    border: "border-[#2563EB]",
+    bg: "bg-[#EFF6FF]",
+    textColor: "text-[#0D1B2A]",
+    bodyColor: "text-gray-600",
+    desc: "Expand the loop to new corridors. Onboard more skill experts and community partners. Launch fleet accounts and consultancy services. Environmental and legal programmes scale with the business.",
+  },
+  {
+    label: "Phase 3 — Platform Scale",
+    border: "border-gray-200",
+    bg: "bg-gray-50",
+    textColor: "text-gray-700",
+    bodyColor: "text-gray-500",
+    desc: "A fully self-sustaining circular economy — pan-African corridor coverage, insurance partnerships, a skill expert training academy, a conservation endowment, and community consultancy embedded in every market we enter.",
+  },
+];
+
+export default function LandingVision() {
+  return (
+    <section id="vision" className="py-24 px-6 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Our Vision</span>
+            <h2 className="text-4xl font-black mt-3 mb-6 text-[#0D1B2A]">Prove the Loop. Then Scale It Across Kenya.</h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              The pilot proves the circular model works — one skill expert, one corridor, one community. Every phase adds more participants to the loop: more drivers, more experts, more community partners, more environmental and legal impact. The system compounds as it grows.
+            </p>
+            <div className="space-y-4">
+              {GOALS.map(goal => (
+                <div key={goal} className="flex items-start gap-3">
+                  <span className="text-[#2563EB] font-black mt-0.5">→</span>
+                  <p className="text-gray-600 text-sm">{goal}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="space-y-4">
+            {PHASES.map(phase => (
+              <div key={phase.label} className={`border-l-4 ${phase.border} ${phase.bg} rounded-r-2xl p-6`}>
+                <p className={`${phase.textColor} font-black text-lg mb-2`}>{phase.label}</p>
+                <p className={`${phase.bodyColor} text-sm leading-relaxed`}>{phase.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
