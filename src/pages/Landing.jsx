@@ -14,16 +14,16 @@ import LandingPartner from "@/components/landing/LandingPartner";
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const TABS = [
-{ id: "about", label: "About", icon: "🏠" },
-{ id: "mission", label: "Mission", icon: "🎯" },
-{ id: "who", label: "Who Is a Mechanic?", icon: "🔧" },
-{ id: "framework", label: "Framework", icon: "🔁" },
+{ id: "about", label: "Home", icon: "🏠" },
+{ id: "mission", label: "Purpose", icon: "🎯" },
+{ id: "who", label: "Mechanic", icon: "🔧" },
+{ id: "framework", label: "Loop", icon: "🔁" },
 { id: "vision", label: "Vision", icon: "🌅" },
-{ id: "how-it-works", label: "How It Works", icon: "⚙️" },
-{ id: "change", label: "Theory of Change", icon: "💡" },
+{ id: "how-it-works", label: "Process", icon: "⚙️" },
+{ id: "change", label: "Impact", icon: "💡" },
 { id: "sdgs", label: "SDGs", icon: "🌍" },
-{ id: "consultancy", label: "Consultancy", icon: "⚖️" },
-{ id: "partner", label: "Partner With Us", icon: "🤝" }];
+{ id: "consultancy", label: "Counsel", icon: "⚖️" },
+{ id: "partner", label: "Collaborate", icon: "🤝" }];
 
 
 export default function Landing() {
