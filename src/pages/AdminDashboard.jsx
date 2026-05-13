@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
-import { Loader2, DollarSign, CheckCircle, Clock, TrendingUp, Send, Download, X, LogOut, Bot } from "lucide-react";
+import { Loader2, DollarSign, CheckCircle, Clock, TrendingUp, Send, Download, X, LogOut, Bot, Sheet, ExternalLink } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import { format, subDays, startOfDay, isToday, isThisWeek } from "date-fns";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,8 @@ export default function AdminDashboard() {
   const [mechanicStatus, setMechanicStatus] = useState(null);
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterPayment, setFilterPayment] = useState("all");
+  const [exportingSheets, setExportingSheets] = useState(false);
+  const [sheetsUrl, setSheetsUrl] = useState(null);
 
   const load = useCallback(async () => {
     const [j, s, ms] = await Promise.all([
@@ -119,6 +121,13 @@ export default function AdminDashboard() {
   const toggleService = async (s) => {
     await base44.entities.ServiceType.update(s.id, { is_active: !s.is_active });
     await load();
+  };
+
+  const exportToSheets = async () => {
+    setExportingSheets(true);
+    const res = await base44.functions.invoke('exportDailyJobReport', { date: new Date().toISOString().split('T')[0] });
+    setSheetsUrl(res.data.spreadsheet_url);
+    setExportingSheets(false);
   };
 
   const exportCSV = () => {
@@ -343,9 +352,25 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <Button className="w-full h-12 bg-gray-900 hover:bg-gray-700 text-white font-bold rounded-xl flex items-center gap-2" onClick={exportCSV}>
-                <Download className="w-4 h-4" /> Export Full Report (CSV)
-              </Button>
+              <div className="space-y-3">
+                <Button className="w-full h-12 bg-gray-900 hover:bg-gray-700 text-white font-bold rounded-xl flex items-center gap-2" onClick={exportCSV}>
+                  <Download className="w-4 h-4" /> Export Full Report (CSV)
+                </Button>
+                <Button
+                  className="w-full h-12 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl flex items-center gap-2"
+                  onClick={exportToSheets}
+                  disabled={exportingSheets}
+                >
+                  {exportingSheets ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sheet className="w-4 h-4" />}
+                  {exportingSheets ? "Exporting to Google Sheets…" : "Export Today's Report to Google Sheets"}
+                </Button>
+                {sheetsUrl && (
+                  <a href={sheetsUrl} target="_blank" rel="noreferrer"
+                    className="flex items-center justify-center gap-2 w-full h-11 bg-green-50 border-2 border-green-300 text-green-700 font-bold rounded-xl text-sm hover:bg-green-100 transition-colors">
+                    <ExternalLink className="w-4 h-4" /> Open Spreadsheet
+                  </a>
+                )}
+              </div>
             </div>
           )}
 
