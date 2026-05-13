@@ -84,10 +84,10 @@ export default function Landing() {
             <span className="text-[#F59E0B]">Built for Kenya.</span>
           </h1>
           <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed">
-            Every tyre fixed creates a job. Every job dignifies a mechanic. Every mechanic empowered strengthens a community. Every strong community protects its environment. That cycle is Waiyaki House.
+            Every breakdown resolved creates a job. Every job dignifies a mechanic. Every mechanic empowered strengthens a community. Every strong community protects its environment. That cycle is Waiyaki House.
           </p>
           <p className="text-blue-200/70 text-base max-w-xl mx-auto mb-10">
-            Roadside tyre services. Youth economic empowerment. Environmental stewardship. Legal and community consultancy. Four pillars. One reinforcing loop.
+            Roadside assistance services. Youth economic empowerment. Environmental stewardship. Legal and community consultancy. Four pillars. One reinforcing loop.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#partner-with-us"
@@ -109,7 +109,7 @@ export default function Landing() {
             { value: "~5M", label: "Registered Vehicles in Kenya" },
             { value: "< 20min", label: "Target Response Time" },
             { value: "80%", label: "Mechanic Revenue Share" },
-            { value: "360°", label: "Circular Economy Model" },
+            { value: "6+", label: "Roadside Assistance Services" },
           ].map(stat => (
             <div key={stat.label}>
               <p className="text-3xl font-black text-white">{stat.value}</p>
@@ -139,11 +139,11 @@ export default function Landing() {
             <div className="space-y-4">
               <div className="bg-[#0D1B2A] rounded-2xl p-6 text-white">
                 <p className="text-[#F59E0B] font-black text-lg mb-2">No circular model exists yet</p>
-                <p className="text-blue-100 text-sm leading-relaxed">No platform today connects tyre services to community wealth creation. Waiyaki House builds that connection — digitally, transparently, at scale.</p>
+                <p className="text-blue-100 text-sm leading-relaxed">No platform today connects roadside assistance services to community wealth creation. Waiyaki House builds that connection — digitally, transparently, at scale.</p>
               </div>
               <div className="bg-[#EFF6FF] rounded-2xl p-6 border border-blue-100">
                 <p className="text-[#0D1B2A] font-black text-lg mb-2">Average vehicle age: 14–20 years</p>
-                <p className="text-gray-500 text-sm leading-relaxed">Kenya's ageing fleet generates consistent demand for tyre services — sustaining the economic engine that funds community empowerment and environmental restoration.</p>
+                <p className="text-gray-500 text-sm leading-relaxed">Kenya's ageing fleet generates consistent demand for roadside assistance — sustaining the economic engine that funds community empowerment and environmental restoration.</p>
               </div>
               <div className="bg-[#FEF9C3] border border-yellow-200 rounded-2xl p-6">
                 <p className="text-[#0D1B2A] font-black text-lg mb-2">The Waiyaki Loop</p>
@@ -164,7 +164,7 @@ export default function Landing() {
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "🚗", title: "Serve Drivers", desc: "Fixed rates, no roadside negotiation. A verified mechanic dispatched to you via app. Pay via M-PESA. Value enters the loop here — predictable, digital, and accountable." },
+              { icon: "🚗", title: "Serve Drivers", desc: "Fixed rates across all roadside services — no negotiation under stress. A verified mechanic dispatched to your location via app. Pay via M-PESA. Value enters the loop here — predictable, digital, and accountable." },
               { icon: "🔧", title: "Empower Mechanics", desc: "80% of every job fee returns directly to the mechanic — creating household income, formal economic identity, and local wealth that stays in the community." },
               { icon: "🌍", title: "Restore & Advise", desc: "Platform revenue funds wetland restoration, corridor clean-ups, and community consultancy — ensuring economic activity regenerates rather than depletes the environment and social fabric." },
             ].map(item => (
@@ -190,7 +190,7 @@ export default function Landing() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { num: "01", title: "Mobility Infrastructure", subtitle: "Value enters the loop", desc: "Fast, reliable tyre assistance for drivers. Fixed rates, M-PESA payment, GPS dispatch. Revenue generated here is what funds every other layer — this is where the circular economy begins.", color: "border-[#F59E0B]" },
+              { num: "01", title: "Mobility Infrastructure", subtitle: "Value enters the loop", desc: "Fast, reliable roadside assistance for stranded drivers — tyre repairs, battery jumps, towing coordination, fuel delivery, and more. Fixed rates, M-PESA payment, GPS dispatch. Revenue generated here is what funds every other layer — this is where the circular economy begins.", color: "border-[#F59E0B]" },
               { num: "02", title: "Economic Infrastructure", subtitle: "Value returns to the community", desc: "80% of every job fee flows directly back to contracted mechanics. Digital income records, professional identity, and a formal foothold in Kenya's economy. Wealth generated stays local.", color: "border-[#2563EB]" },
               { num: "03", title: "Social & Environmental Infrastructure", subtitle: "Value regenerates the ecosystem", desc: "Platform revenue funds wetland restoration, corridor clean-ups, legal consultancy, and community dialogue. Knowledge and environment restored feed stronger, more resilient communities — who demand more services, completing the loop.", color: "border-blue-300" },
             ].map(layer => (
@@ -255,14 +255,14 @@ export default function Landing() {
           <div className="text-center mb-16">
             <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">How It Works</span>
             <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">The Complete Flow</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Simple by design. The MVP is deliberately focused — proving the model before expanding it.</p>
+            <p className="text-gray-500 max-w-xl mx-auto">Simple by design. Driver requests help, a verified mechanic responds — every job feeds back into the community and the loop.</p>
           </div>
           <div className="grid md:grid-cols-4 gap-6 mb-16">
             {[
-              { step: "01", title: "Driver Requests", desc: "Driver opens the app, selects a tyre service, shares their location and vehicle details." },
-              { step: "02", title: "Mechanic Notified", desc: "The contracted mechanic receives an instant notification and accepts the job." },
+              { step: "01", title: "Driver Requests", desc: "Driver opens the app, selects the roadside service they need, shares their location and vehicle details." },
+              { step: "02", title: "Mechanic Notified", desc: "The nearest contracted mechanic receives an instant notification and accepts the job." },
               { step: "03", title: "Mechanic Arrives", desc: "Mechanic is en route within 20 minutes, GPS-tracked, with job status updated in real time." },
-              { step: "04", title: "Done & Paid", desc: "Service completed. Driver pays via M-PESA. Mechanic receives 80% within 24 hours." },
+              { step: "04", title: "Done & Paid", desc: "Service completed. Driver pays via M-PESA. Mechanic receives 80% within 24 hours — the loop continues." },
             ].map(item => (
               <div key={item.step} className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100">
                 <p className="text-4xl font-black text-[#2563EB]/20 mb-3">{item.step}</p>
@@ -274,24 +274,33 @@ export default function Landing() {
 
           {/* Services & Rates */}
           <div className="bg-[#0D1B2A] rounded-3xl p-8 text-white">
-            <h3 className="font-black text-xl mb-2 text-[#F59E0B]">Pilot Services & Fixed Rates</h3>
-            <p className="text-blue-100/70 text-sm mb-6">All rates are fixed. No negotiation at the roadside. All vehicle types covered.</p>
+            <h3 className="font-black text-xl mb-2 text-[#F59E0B]">Pilot Roadside Services & Fixed Rates</h3>
+            <p className="text-blue-100/70 text-sm mb-6">All rates are fixed. No negotiation at the roadside. All vehicle types covered. Every fee feeds the loop.</p>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                { service: "Puncture Repair (Tubeless)", price: "KES 500" },
-                { service: "Puncture Repair (Tube Tyre)", price: "KES 400" },
-                { service: "Tyre Change (Spare Swap)", price: "KES 500" },
-                { service: "Tyre Change + Balancing", price: "KES 800" },
-                { service: "Tyre Inflation (4 tyres)", price: "KES 200" },
-                { service: "Tyre Removal & Refit", price: "KES 600" },
+                { category: "🔧 Tyre Services", service: "Puncture Repair (Tubeless)", price: "KES 500" },
+                { category: "🔧 Tyre Services", service: "Puncture Repair (Tube Tyre)", price: "KES 400" },
+                { category: "🔧 Tyre Services", service: "Tyre Change (Spare Swap)", price: "KES 500" },
+                { category: "🔧 Tyre Services", service: "Tyre Change + Balancing", price: "KES 800" },
+                { category: "🔧 Tyre Services", service: "Tyre Inflation (4 tyres)", price: "KES 200" },
+                { category: "🔧 Tyre Services", service: "Tyre Removal & Refit", price: "KES 600" },
+                { category: "⚡ Battery & Electrical", service: "Jump Start (Dead Battery)", price: "KES 400" },
+                { category: "⚡ Battery & Electrical", service: "Battery Replacement (supply + fit)", price: "KES 2,500+" },
+                { category: "⛽ Fuel & Fluids", service: "Emergency Fuel Delivery (up to 5L)", price: "KES 300 + fuel" },
+                { category: "⛽ Fuel & Fluids", service: "Engine Coolant Top-Up", price: "KES 300" },
+                { category: "🚗 Vehicle Recovery", service: "Towing Coordination (local, up to 10km)", price: "KES 1,500" },
+                { category: "🔩 Minor Roadside Fixes", service: "Loose / Fallen Belt Re-fitting", price: "KES 500" },
               ].map(r => (
                 <div key={r.service} className="flex justify-between items-center bg-white/5 border border-white/10 rounded-xl px-4 py-3">
-                  <span className="text-blue-100 text-sm">{r.service}</span>
-                  <span className="text-[#F59E0B] font-black text-sm">{r.price}</span>
+                  <div>
+                    <p className="text-blue-300/60 text-xs mb-0.5">{r.category}</p>
+                    <span className="text-blue-100 text-sm">{r.service}</span>
+                  </div>
+                  <span className="text-[#F59E0B] font-black text-sm ml-4 whitespace-nowrap">{r.price}</span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-blue-200/50 mt-4">Mechanic receives 80% of every fee. Waiyaki retains 20% as a platform coordination fee.</p>
+            <p className="text-xs text-blue-200/50 mt-4">Mechanic receives 80% of every fee. Waiyaki retains 20% as a platform coordination fee. Services expand as the network grows.</p>
           </div>
         </div>
       </section>
@@ -309,10 +318,10 @@ export default function Landing() {
               <h3 className="font-black text-xl mb-4 text-[#0D1B2A]">For Drivers</h3>
               <div className="space-y-3">
                 {[
-                  "Fixed, transparent pricing — no stress negotiation at the roadside",
-                  "Verified, accountable mechanic dispatched to your location",
+                  "Fixed, transparent pricing across all roadside services — no stress negotiation",
+                  "Verified, accountable mechanic dispatched to your location fast",
+                  "Tyre repairs, battery jumps, fuel delivery, towing & more — one platform",
                   "Pay via M-PESA — your payment funds a local livelihood",
-                  "Real-time job tracking and status updates",
                   "Your service fee re-enters the community: mechanic wages, restoration, consultancy",
                 ].map(point => (
                   <div key={point} className="flex items-start gap-2">
@@ -660,18 +669,18 @@ export default function Landing() {
                 <span className="text-2xl">🔧</span>
                 <div>
                   <p className="text-white font-black text-lg">Mechanics</p>
-                  <p className="text-blue-100 text-xs">Contractor network · Tyre specialists · Limuru area &amp; beyond</p>
+                  <p className="text-blue-100 text-xs">Contractor network · Roadside specialists · Limuru area &amp; beyond</p>
                 </div>
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Mechanics are not just service providers in our model — they are the engine of the circular economy. We are recruiting skilled tyre mechanics in the Limuru area as founding contractors. Consistent job flow. Fair pay that stays local. A professional identity that grows with the platform.
+                  Mechanics are not just service providers in our model — they are the engine of the circular economy. We are recruiting skilled roadside mechanics in the Limuru area as founding contractors. Consistent job flow across a range of services. Fair pay that stays local. A professional identity that grows with the platform.
                 </p>
                 <p className="text-[#2563EB] font-bold text-sm mb-3">What We're Looking For</p>
                 <div className="space-y-2 mb-6">
                   {[
                     "Proven tyre repair and fitting skills (tubeless, tube, balancing)",
-                    "Owns or has access to basic tools",
+                    "Ability to perform jump starts, minor roadside fixes, and fluid top-ups",
                     "Based in Limuru, Kikuyu, or along the Waiyaki Way corridor",
                     "Reliable, professional, and mobile (motorbike / vehicle preferred)",
                     "Comfortable with a mobile app and M-PESA",
@@ -714,13 +723,13 @@ export default function Landing() {
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Does your organisation have vehicles on Kenyan roads? Waiyaki offers priority roadside tyre assistance contracts for businesses, NGOs, embassies, and fleet operators — ensuring your team is never stranded.
+                  Does your organisation have vehicles on Kenyan roads? Waiyaki House offers priority roadside assistance contracts covering tyres, battery, fuel, and recovery — for businesses, NGOs, embassies, and fleet operators. Your team is never stranded, and every contract fee re-enters the circular economy.
                 </p>
                 <p className="text-[#1E3A5F] font-bold text-sm mb-3">What We're Looking For</p>
                 <div className="space-y-2 mb-6">
                   {[
-                    "Businesses or NGOs with 2+ vehicles based in or operating around Limuru / Nairobi",
-                    "Fleet operators seeking structured monthly tyre service cover",
+                    "Businesses or NGOs with 2+ vehicles operating around Limuru / Nairobi",
+                    "Fleet operators seeking structured monthly roadside assistance cover",
                     "Organisations wanting to offer roadside assistance as a staff benefit",
                     "Embassies, development agencies, and humanitarian organisations",
                   ].map(r => (
@@ -796,16 +805,16 @@ export default function Landing() {
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  If you drive in the Limuru area or along the Waiyaki Way corridor, you are exactly who this is for. We are onboarding early driver members ahead of our 2026 pilot launch. Register your interest now and be first to access the service when we go live.
+                  If you drive in the Limuru area or along the Waiyaki Way corridor, you are exactly who this is for. We are onboarding early driver members ahead of our 2026 pilot launch — for the full range of roadside assistance services. Register your interest now.
                 </p>
                 <p className="text-[#0D1B2A] font-bold text-sm mb-3">What You Get as an Early Member</p>
                 <div className="space-y-2 mb-8">
                   {[
-                    "Priority access when the service launches in 2026",
-                    "Fixed, transparent pricing — no roadside negotiation",
+                    "Priority access to all roadside services when we launch in 2026",
+                    "Fixed, transparent pricing — no roadside negotiation, ever",
+                    "Tyre repairs, jump starts, fuel delivery, towing & more",
                     "Verified mechanic dispatched to your location in &lt;20 minutes",
                     "Pay securely via M-PESA — no cash handling",
-                    "Rating system ensures quality and accountability",
                   ].map(r => (
                     <div key={r} className="flex items-start gap-2">
                       <span className="text-[#F59E0B] font-black text-xs mt-1">✓</span>
@@ -920,7 +929,7 @@ export default function Landing() {
           </div>
           <div className="border-t border-white/10 pt-6">
             <p className="text-blue-200/30 text-xs text-center">
-              © {new Date().getFullYear()} Waiyaki House LLC. All rights reserved. · Tyre Services Pilot · Limuru Area · MVP v1.0
+              © {new Date().getFullYear()} Waiyaki House LLC. All rights reserved. · Roadside Assistance Pilot · Limuru Area · MVP v1.0
             </p>
           </div>
         </div>
