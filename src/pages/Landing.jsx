@@ -42,8 +42,8 @@ export default function Landing() {
           <button onClick={() => setActiveTab("about")} className="flex items-center gap-2 flex-shrink-0">
             <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-9 w-9 object-contain rounded-lg" />
             <div className="hidden sm:block">
-              <p className="font-black text-white text-sm leading-tight">WAIYAKI HOUSE</p>
-              <p className="text-xs text-blue-300 leading-tight">Collective Responsibility · Kenya</p>
+              <p className="font-black text-white text-sm leading-tight">WAIYAKI HOUSE LLC</p>
+              <p className="text-xs text-blue-300 leading-tight">Limuru Area · Kenya</p>
             </div>
           </button>
 
@@ -104,7 +104,7 @@ export default function Landing() {
 
       {/* TAB BREADCRUMB BAND */}
       <div className="fixed top-16 left-0 right-0 z-40 bg-[#1E3A5F] border-b border-white/10 px-4 py-2 flex items-center gap-2">
-        <span className="text-[#F59E0B] text-xs font-bold uppercase tracking-widest">Collective Responsibility</span>
+        <span className="text-[#F59E0B] text-xs font-bold uppercase tracking-widest">Waiyaki House LLC</span>
         <span className="text-white/30 text-xs">→</span>
         <span className="text-white text-xs font-bold">{currentTab?.icon} {currentTab?.label}</span>
       </div>
@@ -115,6 +115,75 @@ export default function Landing() {
           <>
             <LandingHero onTabChange={setActiveTab} />
             <LandingStats />
+            {/* TWO CORE SERVICES */}
+            <section className="py-16 px-6 bg-white">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-10">
+                  <span className="text-[#2563EB] font-bold text-xs uppercase tracking-widest">What We Do</span>
+                  <h2 className="text-3xl font-black mt-2 text-[#0D1B2A]">Two Distinguished Services. One Circular Mission.</h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* SERVICE 1 */}
+                  <div className="bg-[#0D1B2A] rounded-3xl overflow-hidden flex flex-col">
+                    <div className="px-8 pt-8 pb-6 flex-1">
+                      <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#2563EB]/30 mb-4">Service 1</span>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-4xl">🚗</span>
+                        <div>
+                          <h3 className="text-white font-black text-xl leading-tight">Roadside Assistance</h3>
+                          <p className="text-blue-300 text-xs">Tyre services · On-demand · Fixed rates</p>
+                        </div>
+                      </div>
+                      <p className="text-blue-100/70 text-sm leading-relaxed mb-5">
+                        Fast, reliable tyre repair and roadside help dispatched directly to stranded drivers along the Waiyaki Way corridor. A verified skill expert reaches you in under 20 minutes — no negotiation, no surprises. Pay via M-PESA.
+                      </p>
+                      <div className="space-y-2">
+                        {["Puncture repair (tubeless & tube)", "Tyre change & balancing", "Tyre inflation & refit", "Jump starts & minor roadside fixes"].map(item => (
+                          <div key={item} className="flex items-center gap-2">
+                            <span className="text-[#F59E0B] font-black text-xs">✓</span>
+                            <p className="text-blue-200/80 text-sm">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="px-8 pb-8">
+                      <button onClick={() => setActiveTab("how-it-works")} className="w-full bg-[#F59E0B] text-[#0D1B2A] font-black py-3 rounded-xl hover:bg-yellow-400 transition-colors text-sm mt-6">
+                        See How It Works →
+                      </button>
+                    </div>
+                  </div>
+                  {/* SERVICE 2 */}
+                  <div className="bg-[#F0F4FF] border border-blue-100 rounded-3xl overflow-hidden flex flex-col">
+                    <div className="px-8 pt-8 pb-6 flex-1">
+                      <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#2563EB]/20 mb-4">Service 2</span>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-4xl">⚖️</span>
+                        <div>
+                          <h3 className="text-[#0D1B2A] font-black text-xl leading-tight">Consultancy</h3>
+                          <p className="text-[#2563EB] text-xs">Legal · Youth empowerment · Environmental · Dialogue</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                        Independent consultancy services open to individuals, communities, businesses, and organisations. We provide expert guidance on legal rights, youth economic empowerment, environmental stewardship, and multi-stakeholder dialogue — embedding collective responsibility into every engagement.
+                      </p>
+                      <div className="space-y-2">
+                        {["Legal rights & community law", "Youth empowerment & skills development", "Environmental & conservation advisory", "Dialogue & facilitation services"].map(item => (
+                          <div key={item} className="flex items-center gap-2">
+                            <span className="text-[#2563EB] font-black text-xs">✓</span>
+                            <p className="text-gray-600 text-sm">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="px-8 pb-8">
+                      <button onClick={() => setActiveTab("consultancy")} className="w-full bg-[#0D1B2A] text-white font-black py-3 rounded-xl hover:bg-[#1E3A5F] transition-colors text-sm mt-6">
+                        Explore Consultancy →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
             <LandingProblem />
           </>
         )}
