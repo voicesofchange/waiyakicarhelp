@@ -8,6 +8,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import PageNotFound from './lib/PageNotFound';
 import Layout from './components/Layout';
 import SmartHome from './pages/SmartHome';
+import Landing from './pages/Landing';
 import MechanicProfile from './pages/MechanicProfile';
 import Settings from './pages/Settings';
 import AdminChat from './pages/AdminChat';
@@ -40,8 +41,9 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
       <Route element={<Layout />}>
-        <Route path="/" element={<SmartHome />} />
+        <Route path="/app" element={<SmartHome />} />
         <Route path="/mechanic" element={<SmartHome />} />
         <Route path="/admin" element={<SmartHome />} />
         <Route path="/mechanic/profile" element={<MechanicProfile />} />
