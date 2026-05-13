@@ -80,15 +80,14 @@ export default function Landing() {
             Waiyaki House LLC — Limuru Area, Kenya · Pilot 2026
           </span>
           <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Roadside Tyre Help,{" "}
-            <span className="text-[#F59E0B]">Coordinated</span>{" "}
-            for Kenya.
+            A Circular Economy{" "}
+            <span className="text-[#F59E0B]">Built for Kenya.</span>
           </h1>
           <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed">
-            Kenya has nearly 5 million registered vehicles. Tyre failures are among the most common and most preventable breakdowns. We built the coordination layer that fixes that.
+            Every tyre fixed creates a job. Every job dignifies a mechanic. Every mechanic empowered strengthens a community. Every strong community protects its environment. That cycle is Waiyaki House.
           </p>
           <p className="text-blue-200/70 text-base max-w-xl mx-auto mb-10">
-            A driver requests help. A verified local mechanic is dispatched. The job is done. Payment is settled via M-PESA. That is the complete flow.
+            Roadside tyre services. Youth economic empowerment. Environmental stewardship. Legal and community consultancy. Four pillars. One reinforcing loop.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#partner-with-us"
@@ -110,7 +109,7 @@ export default function Landing() {
             { value: "~5M", label: "Registered Vehicles in Kenya" },
             { value: "< 20min", label: "Target Response Time" },
             { value: "80%", label: "Mechanic Revenue Share" },
-            { value: "M-PESA", label: "Seamless Digital Payment" },
+            { value: "360°", label: "Circular Economy Model" },
           ].map(stat => (
             <div key={stat.label}>
               <p className="text-3xl font-black text-white">{stat.value}</p>
@@ -126,29 +125,29 @@ export default function Landing() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">The Problem</span>
-              <h2 className="text-4xl font-black mt-3 mb-6 leading-tight text-[#0D1B2A]">The roads are full. The system is broken.</h2>
+              <h2 className="text-4xl font-black mt-3 mb-6 leading-tight text-[#0D1B2A]">A broken system wastes value at every turn.</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                In the Limuru area and along the Waiyaki Way corridor, a driver with a flat tyre today faces a disorganised, cash-based, accountability-free informal market.
+                Along the Waiyaki Way corridor, a stranded driver today enters a disorganised, cash-based, accountability-free informal market. Value leaks out of every transaction — for the driver, the mechanic, and the community alike.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                They call mechanics they may or may not know. Negotiate prices under stress. Wait an unpredictable length of time. And have no recourse if the service is poor.
+                Drivers negotiate prices under stress. Mechanics wait roadside for irregular work. Income stays informal and untraceable. And the community sees none of the economic or environmental benefit that a well-functioning local economy could generate.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                The mechanics face the same disorder from their side: unpredictable job flow, cash-only payments, no income record, no professional reputation, and no path to formal economic participation.
+                Waiyaki House closes that loop. Every service rendered feeds back into the community — through fair mechanic wages, environmental restoration, and legal and dialogue support for the people who need it most.
               </p>
             </div>
             <div className="space-y-4">
               <div className="bg-[#0D1B2A] rounded-2xl p-6 text-white">
-                <p className="text-[#F59E0B] font-black text-lg mb-2">No platform exists</p>
-                <p className="text-blue-100 text-sm leading-relaxed">No app, no hotline, no structured service coordinates tyre assistance digitally in the Limuru area. Waiyaki fills that gap directly.</p>
+                <p className="text-[#F59E0B] font-black text-lg mb-2">No circular model exists yet</p>
+                <p className="text-blue-100 text-sm leading-relaxed">No platform today connects tyre services to community wealth creation. Waiyaki House builds that connection — digitally, transparently, at scale.</p>
               </div>
               <div className="bg-[#EFF6FF] rounded-2xl p-6 border border-blue-100">
                 <p className="text-[#0D1B2A] font-black text-lg mb-2">Average vehicle age: 14–20 years</p>
-                <p className="text-gray-500 text-sm leading-relaxed">Kenya's ageing fleet generates growing and consistent demand for tyre services — the most common and most preventable vehicle emergency on Kenyan roads.</p>
+                <p className="text-gray-500 text-sm leading-relaxed">Kenya's ageing fleet generates consistent demand for tyre services — sustaining the economic engine that funds community empowerment and environmental restoration.</p>
               </div>
               <div className="bg-[#FEF9C3] border border-yellow-200 rounded-2xl p-6">
-                <p className="text-[#0D1B2A] font-black text-lg mb-2">Waiyaki's answer</p>
-                <p className="text-yellow-900 text-sm leading-relaxed">App dispatch. Fixed rates. M-PESA payment. Mechanic accountability. A coordination layer that makes the whole system work.</p>
+                <p className="text-[#0D1B2A] font-black text-lg mb-2">The Waiyaki Loop</p>
+                <p className="text-yellow-900 text-sm leading-relaxed">Service revenue → mechanic wages → community wealth → environmental stewardship → consultancy knowledge → stronger communities. A self-reinforcing cycle.</p>
               </div>
             </div>
           </div>
@@ -159,15 +158,15 @@ export default function Landing() {
       <section id="mission" className="py-24 px-6 bg-[#F0F4FF]">
         <div className="max-w-5xl mx-auto text-center">
           <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Our Mission</span>
-          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">What We Are Here to Do</h2>
+          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Four Pillars. One Reinforcing Loop.</h2>
           <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-            To provide fast, reliable, and dignified roadside tyre assistance to Kenyan motorists — while creating sustainable, well-compensated, formal livelihoods for local mechanics.
+            Waiyaki House is built on a circular economy principle: value generated in one pillar flows directly into the next, compounding impact across mobility, livelihoods, environment, and community knowledge.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "🚗", title: "Serve Drivers", desc: "Fixed rates, no negotiation at the roadside. A verified mechanic dispatched to your location. Pay via M-PESA. Simple, safe, predictable." },
-              { icon: "🔧", title: "Empower Mechanics", desc: "80% of every job fee goes directly to the mechanic. Steady job flow, digital income records, and a professional reputation system — a path out of informality." },
-              { icon: "📱", title: "Build the Infrastructure", desc: "App dispatch, GPS coordination, M-PESA payments, mechanic accountability — the same infrastructure that will scale across corridors and service types." },
+              { icon: "🚗", title: "Serve Drivers", desc: "Fixed rates, no roadside negotiation. A verified mechanic dispatched to you via app. Pay via M-PESA. Value enters the loop here — predictable, digital, and accountable." },
+              { icon: "🔧", title: "Empower Mechanics", desc: "80% of every job fee returns directly to the mechanic — creating household income, formal economic identity, and local wealth that stays in the community." },
+              { icon: "🌍", title: "Restore & Advise", desc: "Platform revenue funds wetland restoration, corridor clean-ups, and community consultancy — ensuring economic activity regenerates rather than depletes the environment and social fabric." },
             ].map(item => (
               <div key={item.title} className="bg-white rounded-2xl p-8 shadow-sm border border-blue-100 text-left">
                 <span className="text-4xl block mb-4">{item.icon}</span>
@@ -184,16 +183,16 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-blue-300 font-bold text-sm uppercase tracking-widest">Framework</span>
-            <h2 className="text-4xl font-black mt-3 mb-4">A Three-Layer Corridor Infrastructure</h2>
+            <h2 className="text-4xl font-black mt-3 mb-4">Three Reinforcing Layers of a Circular Economy</h2>
             <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
-              Even at pilot scale, Waiyaki operates across three reinforcing layers. The infrastructure being built now is the same infrastructure that will eventually coordinate multiple mechanics across multiple corridors.
+              Waiyaki House is designed so that each layer feeds the next. Mobility generates economic participation. Economic participation generates data and community wealth. That wealth funds restoration, consultancy, and social infrastructure — which loops back to strengthen mobility demand.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { num: "01", title: "Mobility Infrastructure", subtitle: "The core business", desc: "Fast, reliable tyre assistance for drivers in the Limuru area. Fixed rates, M-PESA payment, GPS dispatch. This layer must work before anything else is possible.", color: "border-[#F59E0B]" },
-              { num: "02", title: "Economic Infrastructure", subtitle: "Dignified work for mechanics", desc: "Contracted mechanics earn 80% of every job. Digital income records, professional reputation, and a formal economic identity. Waiyaki turns informal labour into structured work.", color: "border-[#2563EB]" },
-              { num: "03", title: "Data Infrastructure", subtitle: "The long-term asset", desc: "Every job generates operational data: response times, job locations, payment records, ratings. This data makes Waiyaki increasingly valuable as it scales — to insurers, fleet operators, and partners.", color: "border-blue-300" },
+              { num: "01", title: "Mobility Infrastructure", subtitle: "Value enters the loop", desc: "Fast, reliable tyre assistance for drivers. Fixed rates, M-PESA payment, GPS dispatch. Revenue generated here is what funds every other layer — this is where the circular economy begins.", color: "border-[#F59E0B]" },
+              { num: "02", title: "Economic Infrastructure", subtitle: "Value returns to the community", desc: "80% of every job fee flows directly back to contracted mechanics. Digital income records, professional identity, and a formal foothold in Kenya's economy. Wealth generated stays local.", color: "border-[#2563EB]" },
+              { num: "03", title: "Social & Environmental Infrastructure", subtitle: "Value regenerates the ecosystem", desc: "Platform revenue funds wetland restoration, corridor clean-ups, legal consultancy, and community dialogue. Knowledge and environment restored feed stronger, more resilient communities — who demand more services, completing the loop.", color: "border-blue-300" },
             ].map(layer => (
               <div key={layer.num} className={`bg-white/5 border-t-4 ${layer.color} rounded-2xl p-8 border border-white/10`}>
                 <p className="text-4xl font-black text-white/20 mb-3">{layer.num}</p>
@@ -212,18 +211,18 @@ export default function Landing() {
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Our Vision</span>
-              <h2 className="text-4xl font-black mt-3 mb-6 text-[#0D1B2A]">Start Small. Build the Right System. Scale It.</h2>
+              <h2 className="text-4xl font-black mt-3 mb-6 text-[#0D1B2A]">Prove the Loop. Then Scale It Across Kenya.</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                The pilot proves the model with one mechanic in one area. The infrastructure built in the pilot — dispatch, payment, accountability — is exactly the infrastructure needed to scale across Kenya's road corridors.
+                The pilot proves the circular model works — one mechanic, one corridor, one community. Every phase adds more participants to the loop: more drivers, more mechanics, more community partners, more environmental and legal impact. The system compounds as it grows.
               </p>
               <div className="space-y-4">
                 {[
-                  "Prove dispatch model in Limuru — validate demand and operations",
-                  "Expand to Nairobi, Nakuru, and Thika corridors",
-                  "Build a certified network of 100+ contracted mechanics",
-                  "Introduce fleet and corporate tyre service contracts",
-                  "Partner with insurance companies for roadside tyre cover",
-                  "Launch mechanic training and certification programmes",
+                  "Prove the circular loop in Limuru — mobility, income, community, environment",
+                  "Expand the loop to Nairobi, Nakuru, and Thika corridors",
+                  "Build a certified network of 100+ contracted mechanics reinvesting in their communities",
+                  "Introduce fleet contracts that fund deeper environmental restoration",
+                  "Partner with insurers, NGOs, and DFIs to co-finance community infrastructure",
+                  "Launch consultancy and dialogue services across all active corridors",
                 ].map(goal => (
                   <div key={goal} className="flex items-start gap-3">
                     <span className="text-[#2563EB] font-black mt-0.5">→</span>
@@ -235,15 +234,15 @@ export default function Landing() {
             <div className="space-y-4">
               <div className="border-l-4 border-[#F59E0B] bg-[#FEF9C3] rounded-r-2xl p-6">
                 <p className="text-[#0D1B2A] font-black text-lg mb-2">Phase 1 — Pilot (Now)</p>
-                <p className="text-yellow-900 text-sm leading-relaxed">One mechanic. Limuru area. Tyre services only. Prove that drivers request help via app, the mechanic responds reliably, and M-PESA payment works end to end. Build the operational data.</p>
+                <p className="text-yellow-900 text-sm leading-relaxed">One mechanic. Limuru area. Prove the loop works: driver pays → mechanic earns → revenue funds community → community strengthens demand. Every job is a proof point for the whole model.</p>
               </div>
               <div className="border-l-4 border-[#2563EB] bg-[#EFF6FF] rounded-r-2xl p-6">
                 <p className="text-[#0D1B2A] font-black text-lg mb-2">Phase 2 — Corridor Expansion</p>
-                <p className="text-gray-600 text-sm leading-relaxed">Expand to Nairobi, Nakuru, Thika. Onboard additional contracted mechanics. Launch fleet and corporate accounts. Introduce mechanic certification.</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Expand the loop to new corridors. Onboard more mechanics and community partners. Launch fleet accounts and consultancy services. Environmental and legal programmes scale with the business.</p>
               </div>
               <div className="border-l-4 border-gray-200 bg-gray-50 rounded-r-2xl p-6">
                 <p className="text-gray-700 font-black text-lg mb-2">Phase 3 — Platform Scale</p>
-                <p className="text-gray-500 text-sm leading-relaxed">Insurance partnerships. Multiple service types. Pan-African roadside coordination. A full mechanic training academy. The infrastructure built in Phase 1 carries all of it.</p>
+                <p className="text-gray-500 text-sm leading-relaxed">A fully self-sustaining circular economy — pan-African corridor coverage, insurance partnerships, a mechanic training academy, a conservation endowment, and community consultancy embedded in every market we enter.</p>
               </div>
             </div>
           </div>
@@ -301,20 +300,20 @@ export default function Landing() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Theory of Change</span>
-          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Why This Works</h2>
+          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Why the Circular Model Works</h2>
           <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
-            Waiyaki introduces a coordination layer between drivers and mechanics. The result is better outcomes for both sides — and operational data that makes the platform increasingly valuable over time.
+            Waiyaki House creates a closed loop where every participant benefits — and where value generated is not extracted from the community but returned to it. Drivers get reliable service. Mechanics get dignity and income. Communities get environmental restoration, legal support, and a stronger local economy.
           </p>
           <div className="grid md:grid-cols-2 gap-8 text-left">
             <div className="bg-[#EFF6FF] rounded-2xl p-8 border border-blue-100">
               <h3 className="font-black text-xl mb-4 text-[#0D1B2A]">For Drivers</h3>
               <div className="space-y-3">
                 {[
-                  "Fixed, transparent pricing — no stress negotiation",
-                  "Verified, accountable mechanic — not a stranger from the roadside",
-                  "Pay-per-use via M-PESA — no membership required",
+                  "Fixed, transparent pricing — no stress negotiation at the roadside",
+                  "Verified, accountable mechanic dispatched to your location",
+                  "Pay via M-PESA — your payment funds a local livelihood",
                   "Real-time job tracking and status updates",
-                  "Rating system creates accountability and quality assurance",
+                  "Your service fee re-enters the community: mechanic wages, restoration, consultancy",
                 ].map(point => (
                   <div key={point} className="flex items-start gap-2">
                     <span className="text-[#2563EB] font-black text-xs mt-1">✓</span>
@@ -327,11 +326,11 @@ export default function Landing() {
               <h3 className="font-black text-xl mb-4 text-[#0D1B2A]">For Mechanics</h3>
               <div className="space-y-3">
                 {[
-                  "Steady, predictable job flow — no more waiting roadside",
-                  "80% revenue share — fair and transparent",
-                  "Digital income records — a formal economic identity",
-                  "Professional reputation through ratings",
-                  "A path from informal labour to structured, dignified work",
+                  "80% of every job fee returns to you — directly, within 24 hours",
+                  "Steady, app-dispatched job flow — value flows to you reliably",
+                  "Digital income records — your formal foothold in the economy",
+                  "Professional ratings and certification — your reputation compounds over time",
+                  "Your earnings stay in Limuru, strengthening the community that supports the platform",
                 ].map(point => (
                   <div key={point} className="flex items-start gap-2">
                     <span className="text-[#F59E0B] font-black text-xs mt-1">✓</span>
@@ -353,7 +352,7 @@ export default function Landing() {
             </span>
             <h2 className="text-4xl font-black mb-4">Built for People, Planet &amp; Prosperity.</h2>
             <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed mb-16">
-              Waiyaki Roadside is not just a business — it is a deliberate response to Kenya's development challenges. Every job dispatched advances multiple UN SDGs simultaneously.
+              Waiyaki House is not just a business — it is a deliberately circular response to Kenya's development challenges. Every job dispatched advances multiple UN SDGs simultaneously, because the circular model ensures value flows outward rather than being extracted.
             </p>
           </div>
 
@@ -366,7 +365,7 @@ export default function Landing() {
                 icon: "💼",
                 title: "Decent Work & Economic Growth",
                 highlight: "Youth Economic Empowerment",
-                desc: "Waiyaki prioritises recruiting young mechanics from underserved communities, giving them formal contracts, digital income records, and a professional identity. 80% revenue share ensures fair, living-wage compensation — turning informal roadside work into dignified, structured employment.",
+                desc: "The circular model demands that economic value reach those who generate it. Waiyaki prioritises young mechanics from underserved communities — giving them formal contracts, digital income records, and 80% of every job fee. Informal roadside labour becomes structured, dignified, career-building work.",
               },
               {
                 num: "SDG 11",
@@ -374,7 +373,7 @@ export default function Landing() {
                 icon: "🏙️",
                 title: "Sustainable Cities & Communities",
                 highlight: "Safer Urban Roads",
-                desc: "Stranded vehicles on Nairobi's corridors create congestion, accidents, and emissions. By dispatching mechanics within 20 minutes, Waiyaki reduces breakdown dwell time, keeps traffic flowing, and makes Kenya's roads safer and more resilient for everyone.",
+                desc: "A circular economy thrives in well-functioning cities. Waiyaki reduces breakdown dwell time, clears corridors faster, and cuts unnecessary emissions — making Kenya's roads safer and more economically productive. Efficient roads support the communities that depend on them.",
               },
               {
                 num: "SDG 10",
@@ -382,7 +381,7 @@ export default function Landing() {
                 icon: "⚖️",
                 title: "Reduced Inequalities",
                 highlight: "Formalising the Informal Sector",
-                desc: "Kenya's roadside mechanics operate in a cash-only, accountability-free informal economy with no path to progression. Waiyaki brings them into the formal digital economy — with traceable income, professional ratings, and access to financial services they were previously excluded from.",
+                desc: "A circular economy cannot thrive when large segments of its workforce are excluded. Waiyaki brings mechanics into the formal digital economy — traceable income, professional ratings, banking access — so that the value they create circulates back to them and their families.",
               },
             ].map(sdg => (
               <div key={sdg.num} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
@@ -404,10 +403,10 @@ export default function Landing() {
           {/* Secondary SDGs */}
           <div className="grid md:grid-cols-4 gap-4 mb-12">
             {[
-              { num: "SDG 1", color: "border-[#E5243B]", icon: "🏠", title: "No Poverty", desc: "Stable, predictable income for mechanics and their families lifts households out of poverty through dignified work." },
-              { num: "SDG 9", color: "border-[#FD6925]", icon: "🏗️", title: "Industry & Innovation", desc: "Digital dispatch, GPS tracking, and M-PESA integration bring modern infrastructure to an informal market." },
-              { num: "SDG 17", color: "border-[#19486A]", icon: "🤝", title: "Partnerships for Goals", desc: "Waiyaki actively seeks corporate, NGO, and investor partners to co-build the infrastructure that scales this model." },
-              { num: "SDG 13", color: "border-[#3F7E44]", icon: "🌍", title: "Climate Action", desc: "Faster tyre repair means less idling, fewer tow-truck trips, and reduced emissions per breakdown — a small but measurable environmental benefit." },
+              { num: "SDG 1", color: "border-[#E5243B]", icon: "🏠", title: "No Poverty", desc: "Circular income — 80% of every fee returned to the mechanic — creates stable, predictable household income that lifts families out of poverty." },
+              { num: "SDG 9", color: "border-[#FD6925]", icon: "🏗️", title: "Industry & Innovation", desc: "Digital dispatch, GPS, and M-PESA build the modern infrastructure that makes the circular model possible — and replicable across Africa." },
+              { num: "SDG 17", color: "border-[#19486A]", icon: "🤝", title: "Partnerships for Goals", desc: "The circular economy requires partners at every layer — investors, NGOs, mechanics, corporates, and government all have a role in closing the loop." },
+              { num: "SDG 13", color: "border-[#3F7E44]", icon: "🌍", title: "Climate Action", desc: "Faster repairs mean less idling, fewer tow trips, and reduced emissions. Environmental consultancy and wetland restoration close the ecological loop." },
             ].map(sdg => (
               <div key={sdg.num} className={`bg-white/5 border-l-4 ${sdg.color} border border-white/10 rounded-2xl p-5`}>
                 <div className="flex items-center gap-2 mb-2">
@@ -434,17 +433,17 @@ export default function Landing() {
                 <p className="text-[#F59E0B] font-bold text-sm mb-3">Wetland Restoration</p>
                 <h3 className="text-white font-black text-xl mb-4">Protecting the Manguo Wetlands.</h3>
                 <p className="text-blue-100/70 text-sm leading-relaxed mb-4">
-                  The Manguo Wetlands in Limuru, Kenya — a critical freshwater ecosystem and biodiversity corridor — face mounting pressure from encroachment, pollution, and urban growth. As a company rooted in the Limuru community, Waiyaki House LLC is committed to the long-term restoration and protection of Manguo.
+                  The Manguo Wetlands in Limuru — a critical freshwater ecosystem and biodiversity corridor — face mounting pressure from encroachment and pollution. In a circular economy, the environment is not a byproduct of business; it is a stakeholder. Waiyaki House commits a ring-fenced portion of platform revenue to Manguo's long-term restoration.
                 </p>
                 <p className="text-blue-100/70 text-sm leading-relaxed">
-                  A portion of Waiyaki's platform revenue will be ring-fenced for wetland restoration activities — working alongside local conservancies, schools, and community leaders to rehabilitate the wetland ecosystem and protect it for future generations.
+                  Business activity generates revenue. Revenue funds restoration. A restored ecosystem supports community health and wellbeing. Healthy communities drive stronger local economic activity. The loop closes — and it grows with us.
                 </p>
               </div>
               <div>
                 <p className="text-[#F59E0B] font-bold text-sm mb-3">Community Clean-Ups</p>
                 <h3 className="text-white font-black text-xl mb-4">Clean Corridors. Proud Communities.</h3>
                 <p className="text-blue-100/70 text-sm leading-relaxed mb-6">
-                  Waiyaki mechanics operate across the Limuru road corridor every day. We will organise and fund regular community clean-up events along these corridors — tackling roadside waste, illegal dumping, and plastic pollution that disproportionately impacts the poorest roadside communities.
+                  Our mechanics travel these roads daily. They are witnesses to the waste, the pollution, and the neglect. In a circular economy, those who know the problem are best placed to solve it. Waiyaki funds and organises regular clean-up events along our operational corridors — turning economic activity into environmental action.
                 </p>
                 <div className="space-y-3">
                   {[
@@ -466,9 +465,9 @@ export default function Landing() {
           {/* Youth focus callout */}
           <div className="bg-gradient-to-r from-[#2563EB]/30 to-[#1E3A5F]/50 border border-[#2563EB]/40 rounded-2xl p-8 text-center">
             <p className="text-[#F59E0B] font-black text-sm uppercase tracking-widest mb-3">Our Youth Commitment</p>
-            <h3 className="text-white font-black text-2xl mb-4">Economic Empowerment, Starting Young.</h3>
+            <h3 className="text-white font-black text-2xl mb-4">Young People Are the Engine of Our Circular Economy.</h3>
             <p className="text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
-              Kenya has one of Africa's largest youth populations, with over 75% of Kenyans under 35. Many skilled young mechanics are locked out of the formal economy. Waiyaki's goal is to make youth mechanics the backbone of our contractor network — providing apprenticeships, certification pathways, and digital financial inclusion as we scale.
+              Over 75% of Kenyans are under 35. A circular economy that excludes its youth is not circular — it is extractive. Waiyaki House makes young mechanics the backbone of our contractor network: apprenticeships, certification, digital financial inclusion, and a professional identity that compounds in value as the platform grows. When youth thrive, the whole loop accelerates.
             </p>
           </div>
         </div>
@@ -481,9 +480,9 @@ export default function Landing() {
             <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/20 mb-6">
               Waiyaki House Consultancy
             </span>
-            <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Advisory & Consultancy Services</h2>
+            <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Knowledge Is the Final Layer of the Loop.</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-              Beyond roadside services, Waiyaki House offers independent consultancy across law, environmental stewardship, and facilitation — open to individuals, communities, organisations, and government bodies across Kenya.
+              A circular economy is only sustainable when communities have the knowledge to defend their rights, steward their environment, and resolve their conflicts. Waiyaki House offers independent consultancy in law, environmental stewardship, and facilitation — open to all Kenyans, not just those who can afford it.
             </p>
           </div>
 
@@ -568,9 +567,9 @@ export default function Landing() {
           {/* Consultancy ethos banner */}
           <div className="bg-[#0D1B2A] rounded-2xl p-8 text-center">
             <p className="text-[#F59E0B] font-black text-sm uppercase tracking-widest mb-3">Our Approach</p>
-            <h3 className="text-white font-black text-2xl mb-4">Independent. Principled. For the People.</h3>
+            <h3 className="text-white font-black text-2xl mb-4">Independent. Principled. Completing the Loop.</h3>
             <p className="text-blue-100/70 max-w-2xl mx-auto leading-relaxed text-sm">
-              Waiyaki House consultancy is rooted in the belief that access to good counsel, environmental accountability, and honest dialogue should not be the preserve of the wealthy or the powerful. We work across Kenya — with communities, cooperatives, grassroots organisations, and institutions — on a mandate of equity, transparency, and long-term human flourishing.
+              In our circular model, consultancy is not a separate business — it is the layer that protects and compounds everything else. Legal knowledge defends communities. Environmental stewardship restores what mobility uses. Facilitation resolves the conflicts that slow progress. Together, they ensure the loop keeps turning — for everyone, not just those who can pay a premium for good counsel.
             </p>
             <a href="#contact-form" className="inline-block mt-6 bg-[#F59E0B] text-[#0D1B2A] font-black px-8 py-3 rounded-xl hover:bg-yellow-400 transition-colors text-sm">
               Request a Consultation →
@@ -584,9 +583,9 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Collaborate</span>
-            <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Partner With Waiyaki</h2>
+            <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Partner With Waiyaki House</h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-              We are building Kenya's roadside coordination infrastructure. Here is exactly who we are looking for — and what we are asking from each.
+              A circular economy needs participants at every layer. Whether you invest capital, contribute skills, bring a fleet, or champion the environment — there is a place for you in the loop. Here is exactly who we need, and what we offer in return.
             </p>
           </div>
 
@@ -604,7 +603,7 @@ export default function Landing() {
               </div>
               <div className="p-8">
                 <p className="text-blue-100/70 text-sm leading-relaxed mb-8">
-                  We are raising a seed round to prove the pilot model in Limuru, build out the full dispatch infrastructure, and establish the operational data needed to justify a Series A expansion across Kenya's road corridors. We are a strong fit for impact-focused investors and development finance institutions alongside traditional early-stage VC.
+                  Investing in Waiyaki House means investing in a circular economy that compounds. Capital deployed here generates returns across mobility, livelihoods, environment, and community knowledge — simultaneously. We are raising a seed round to prove the loop in Limuru and establish the operational data to justify Series A corridor expansion. A strong fit for impact investors, development finance institutions, and values-aligned early-stage VC.
                 </p>
                 {/* Investment tiers */}
                 <p className="text-[#F59E0B] font-bold text-sm uppercase tracking-wide mb-4">Investment Tiers — What We're Asking For</p>
@@ -666,7 +665,7 @@ export default function Landing() {
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  We are recruiting skilled tyre mechanics in the Limuru area to join our contracted network as the platform's founding mechanics. This is not a gig — it's a structured contractor role with consistent job flow, fair pay, and a professional identity.
+                  Mechanics are not just service providers in our model — they are the engine of the circular economy. We are recruiting skilled tyre mechanics in the Limuru area as founding contractors. Consistent job flow. Fair pay that stays local. A professional identity that grows with the platform.
                 </p>
                 <p className="text-[#2563EB] font-bold text-sm mb-3">What We're Looking For</p>
                 <div className="space-y-2 mb-6">
