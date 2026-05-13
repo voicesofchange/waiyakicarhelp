@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
 
-const NAV_LINKS = ["About", "Mission", "Vision", "How It Works", "SDGs", "Partner With Us"];
+const NAV_LINKS = ["About", "Mission", "Vision", "How It Works", "SDGs", "Consultancy", "Partner With Us"];
 
 export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,8 +34,8 @@ export default function Landing() {
           <div className="flex items-center gap-2">
             <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-10 w-10 object-contain rounded-lg" />
             <div>
-              <p className="font-black text-white text-sm leading-tight">WAIYAKI ROADSIDE</p>
-              <p className="text-xs text-blue-300 leading-tight">by Waiyaki House LLC</p>
+              <p className="font-black text-white text-sm leading-tight">WAIYAKI HOUSE</p>
+              <p className="text-xs text-blue-300 leading-tight">Waiyaki House LLC · Kenya</p>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -474,6 +474,111 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* CONSULTANCY */}
+      <section id="consultancy" className="py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/20 mb-6">
+              Waiyaki House Consultancy
+            </span>
+            <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Advisory & Consultancy Services</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
+              Beyond roadside services, Waiyaki House offers independent consultancy across law, environmental stewardship, and facilitation — open to individuals, communities, organisations, and government bodies across Kenya.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-14">
+            {[
+              {
+                icon: "⚖️",
+                color: "bg-[#0D1B2A]",
+                iconBg: "bg-[#2563EB]/20",
+                accentText: "text-[#2563EB]",
+                title: "Legal Consultancy",
+                subtitle: "Rights, contracts & community law",
+                desc: "Accessible, plain-language legal guidance for Kenyans who need it most. We advise individuals, small businesses, community groups, and cooperatives on their rights, contracts, land matters, and navigating Kenya's legal systems.",
+                areas: [
+                  "Land rights & community title disputes",
+                  "Small business contracts & registration",
+                  "Employment law & worker rights",
+                  "Consumer rights & dispute resolution",
+                  "Legal literacy workshops for communities",
+                ],
+              },
+              {
+                icon: "🌿",
+                color: "bg-[#3F7E44]",
+                iconBg: "bg-green-100",
+                accentText: "text-[#3F7E44]",
+                title: "Environmental Stewardship",
+                subtitle: "Conservation, land & ecological planning",
+                desc: "Drawing on our commitment to Manguo Wetlands and corridor conservation, we advise communities, developers, and organisations on responsible environmental practice, conservation compliance, and ecosystem-centred development in Kenya.",
+                areas: [
+                  "Wetland & riparian ecosystem advisory",
+                  "Environmental impact facilitation",
+                  "Community conservation strategy",
+                  "Waste management & clean corridor planning",
+                  "Climate-resilient land use guidance",
+                ],
+              },
+              {
+                icon: "🤝",
+                color: "bg-[#F59E0B]",
+                iconBg: "bg-amber-100",
+                accentText: "text-amber-700",
+                title: "Dialogue & Facilitation",
+                subtitle: "Conversations that matter, done right",
+                desc: "Some of humanity's most important decisions require neutral, skilled facilitation. We convene and facilitate multi-stakeholder dialogues, community consultations, and difficult conversations — from land negotiations to policy roundtables — for the better of all parties.",
+                areas: [
+                  "Community & inter-tribal dialogue facilitation",
+                  "Multi-stakeholder policy roundtables",
+                  "Land & resource conflict mediation",
+                  "NGO & government consultation processes",
+                  "Youth civic engagement sessions",
+                ],
+              },
+            ].map(service => (
+              <div key={service.title} className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                <div className={`${service.color} px-6 py-5 flex items-center gap-3`}>
+                  <span className="text-3xl">{service.icon}</span>
+                  <div>
+                    <p className="text-white font-black text-base">{service.title}</p>
+                    <p className="text-white/70 text-xs">{service.subtitle}</p>
+                  </div>
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">{service.desc}</p>
+                  <p className={`text-xs font-bold uppercase tracking-wide mb-3 ${service.accentText}`}>Areas We Cover</p>
+                  <div className="space-y-2 flex-1">
+                    {service.areas.map(a => (
+                      <div key={a} className="flex items-start gap-2">
+                        <span className={`font-black text-xs mt-0.5 ${service.accentText}`}>→</span>
+                        <p className="text-gray-500 text-sm leading-relaxed">{a}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <a href="#contact-form" className="mt-6 block text-center border-2 border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] text-gray-600 font-bold text-sm py-2.5 rounded-xl transition-colors">
+                    Enquire →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Consultancy ethos banner */}
+          <div className="bg-[#0D1B2A] rounded-2xl p-8 text-center">
+            <p className="text-[#F59E0B] font-black text-sm uppercase tracking-widest mb-3">Our Approach</p>
+            <h3 className="text-white font-black text-2xl mb-4">Independent. Principled. For the People.</h3>
+            <p className="text-blue-100/70 max-w-2xl mx-auto leading-relaxed text-sm">
+              Waiyaki House consultancy is rooted in the belief that access to good counsel, environmental accountability, and honest dialogue should not be the preserve of the wealthy or the powerful. We work across Kenya — with communities, cooperatives, grassroots organisations, and institutions — on a mandate of equity, transparency, and long-term human flourishing.
+            </p>
+            <a href="#contact-form" className="inline-block mt-6 bg-[#F59E0B] text-[#0D1B2A] font-black px-8 py-3 rounded-xl hover:bg-yellow-400 transition-colors text-sm">
+              Request a Consultation →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* PARTNER */}
       <section id="partner-with-us" className="py-24 px-6 bg-[#F0F4FF]">
         <div className="max-w-5xl mx-auto">
@@ -765,6 +870,9 @@ export default function Landing() {
                   <option value="Corporate / Fleet" className="bg-[#0D1B2A]">A Corporate / Fleet Operator</option>
                   <option value="NGO / Grant Partner" className="bg-[#0D1B2A]">An NGO / Grant Partner</option>
                   <option value="Driver / Early Customer" className="bg-[#0D1B2A]">A Driver (Early Access)</option>
+                  <option value="Legal Consultancy" className="bg-[#0D1B2A]">Legal Consultancy Enquiry</option>
+                  <option value="Environmental Consultancy" className="bg-[#0D1B2A]">Environmental Stewardship Enquiry</option>
+                  <option value="Dialogue & Facilitation" className="bg-[#0D1B2A]">Dialogue & Facilitation Enquiry</option>
                   <option value="Other" className="bg-[#0D1B2A]">Something Else</option>
                 </select>
                 <textarea
@@ -796,8 +904,8 @@ export default function Landing() {
               <div className="flex items-center gap-2 mb-3">
                 <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-8 w-8 object-contain rounded-md" />
                 <div>
-                  <p className="text-white font-black text-sm">Waiyaki Roadside</p>
-                  <p className="text-blue-300 text-xs">A Waiyaki House LLC Product</p>
+                  <p className="text-white font-black text-sm">Waiyaki House</p>
+                  <p className="text-blue-300 text-xs">Waiyaki House LLC · Kenya</p>
                 </div>
               </div>
               <p className="text-blue-200/50 text-xs max-w-xs leading-relaxed">
