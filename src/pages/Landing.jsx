@@ -420,6 +420,49 @@ export default function Landing() {
             ))}
           </div>
 
+          {/* Environmental Stewardship */}
+          <div className="mt-8 bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-8">
+            <div className="bg-[#3F7E44] px-6 py-4 flex items-center gap-3">
+              <span className="text-2xl">🌿</span>
+              <div>
+                <p className="text-white font-black text-sm">SDG 15 · Life on Land &amp; SDG 6 · Clean Water</p>
+                <p className="text-white/80 text-xs">Environmental Stewardship — Manguo Wetlands, Limuru</p>
+              </div>
+            </div>
+            <div className="p-8 grid md:grid-cols-2 gap-10 items-start">
+              <div>
+                <p className="text-[#F59E0B] font-bold text-sm mb-3">Wetland Restoration</p>
+                <h3 className="text-white font-black text-xl mb-4">Protecting the Manguo Wetlands.</h3>
+                <p className="text-blue-100/70 text-sm leading-relaxed mb-4">
+                  The Manguo Wetlands in Limuru, Kenya — a critical freshwater ecosystem and biodiversity corridor — face mounting pressure from encroachment, pollution, and urban growth. As a company rooted in the Limuru community, Waiyaki House LLC is committed to the long-term restoration and protection of Manguo.
+                </p>
+                <p className="text-blue-100/70 text-sm leading-relaxed">
+                  A portion of Waiyaki's platform revenue will be ring-fenced for wetland restoration activities — working alongside local conservancies, schools, and community leaders to rehabilitate the wetland ecosystem and protect it for future generations.
+                </p>
+              </div>
+              <div>
+                <p className="text-[#F59E0B] font-bold text-sm mb-3">Community Clean-Ups</p>
+                <h3 className="text-white font-black text-xl mb-4">Clean Corridors. Proud Communities.</h3>
+                <p className="text-blue-100/70 text-sm leading-relaxed mb-6">
+                  Waiyaki mechanics operate across the Limuru road corridor every day. We will organise and fund regular community clean-up events along these corridors — tackling roadside waste, illegal dumping, and plastic pollution that disproportionately impacts the poorest roadside communities.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    "Quarterly wetland restoration days at Manguo",
+                    "Monthly roadside clean-up events in Limuru",
+                    "Youth volunteer programme with certificates",
+                    "Partnerships with local schools and conservation groups",
+                  ].map(item => (
+                    <div key={item} className="flex items-start gap-2">
+                      <span className="text-[#3F7E44] font-black text-xs mt-1">✓</span>
+                      <p className="text-blue-100/70 text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Youth focus callout */}
           <div className="bg-gradient-to-r from-[#2563EB]/30 to-[#1E3A5F]/50 border border-[#2563EB]/40 rounded-2xl p-8 text-center">
             <p className="text-[#F59E0B] font-black text-sm uppercase tracking-widest mb-3">Our Youth Commitment</p>
