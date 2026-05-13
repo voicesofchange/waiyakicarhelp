@@ -12,11 +12,14 @@ export default function Landing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    await base44.integrations.Core.SendEmail({
-      to: "sustainthevoices@gmail.com",
+    const emailPayload = {
       subject: `Partnership Inquiry — ${form.type || "General"} — ${form.name}`,
       body: `Name: ${form.name}\nEmail: ${form.email}\nOrganisation: ${form.org}\nType: ${form.type}\n\nMessage:\n${form.message}`,
-    });
+    };
+    await Promise.all([
+      base44.integrations.Core.SendEmail({ to: "sustainthevoices@gmail.com", ...emailPayload }),
+      base44.integrations.Core.SendEmail({ to: "info@sustainthevoices.org", ...emailPayload }),
+    ]);
     setSent(true);
     setSending(false);
     setForm({ name: "", email: "", org: "", type: "", message: "" });
