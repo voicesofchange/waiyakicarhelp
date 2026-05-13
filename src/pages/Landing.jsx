@@ -34,7 +34,7 @@ export default function Landing() {
           <div className="flex items-center gap-2">
             <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-10 w-10 object-contain rounded-lg" />
             <div>
-              <p className="font-black text-gray-900 text-sm leading-tight">WAIYAKI CAR HELP</p>
+              <p className="font-black text-gray-900 text-sm leading-tight">WAIYAKI ROADSIDE</p>
               <p className="text-xs text-gray-400 leading-tight">by Waiyaki House LLC</p>
             </div>
           </div>
@@ -489,7 +489,7 @@ export default function Landing() {
               <div className="flex items-center gap-2 mb-3">
                 <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-8 w-8 object-contain rounded-md" />
                 <div>
-                  <p className="text-white font-black text-sm">Waiyaki Car Help</p>
+                  <p className="text-white font-black text-sm">Waiyaki Roadside</p>
                   <p className="text-gray-500 text-xs">A Waiyaki House LLC Product</p>
                 </div>
               </div>
