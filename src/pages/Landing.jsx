@@ -42,8 +42,8 @@ export default function Landing() {
           <button onClick={() => setActiveTab("about")} className="flex items-center gap-2 flex-shrink-0">
             <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-9 w-9 object-contain rounded-lg" />
             <div className="hidden sm:block">
-              <p className="font-black text-white text-sm leading-tight">WAIYAKI HOUSE LLC</p>
-              <p className="text-xs text-blue-300 leading-tight">Limuru Area · Kenya</p>
+              <p className="font-black text-white text-sm leading-tight tracking-wide">WAIYAKI HOUSE LLC</p>
+              <p className="text-xs text-[#F59E0B] leading-tight font-semibold">Limuru Area · Kenya</p>
             </div>
           </button>
 
@@ -56,7 +56,7 @@ export default function Landing() {
                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                   activeTab === tab.id
                     ? "bg-[#F59E0B] text-[#0D1B2A]"
-                    : "text-blue-200 hover:text-white hover:bg-white/10"
+                    : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {tab.icon} {tab.label}
@@ -67,7 +67,7 @@ export default function Landing() {
           {/* Partner CTA */}
           <button
             onClick={() => setActiveTab("partner")}
-            className="hidden sm:block bg-[#F59E0B] text-[#0D1B2A] font-bold text-xs px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors flex-shrink-0"
+            className="hidden sm:block bg-[#F59E0B] text-[#0D1B2A] font-black text-xs px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors flex-shrink-0 shadow-md"
           >
             Partner With Us
           </button>
