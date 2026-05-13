@@ -39,18 +39,20 @@ const SERVICES = [
 
 export default function LandingConsultancy() {
   return (
-    <section id="consultancy" className="py-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/20 mb-6">
-            Waiyaki House Consultancy
-          </span>
-          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Knowledge Is the Final Layer of the Loop.</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Collective responsibility requires that knowledge — legal, environmental, and facilitative — belongs to everyone. A circular economy cannot survive when only some communities can defend their rights. Waiyaki House offers independent consultancy open to all Kenyans, embedding shared accountability into every engagement.
-          </p>
-        </div>
+    <section id="consultancy" className="bg-white">
+      <div className="bg-[#0D1B2A] px-6 py-16 text-center">
+        <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/30 mb-6">
+          Waiyaki House Consultancy
+        </span>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">Knowledge Is the Final Layer of the Loop.</h2>
+        <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
+          Collective responsibility requires that knowledge — legal, environmental, and facilitative — belongs to everyone. A circular economy cannot survive when only some communities can defend their rights. Waiyaki House offers independent consultancy open to all Kenyans, embedding shared accountability into every engagement.
+        </p>
+      </div>
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="mb-16">
 
+        </div>
         <div className="grid md:grid-cols-3 gap-8 mb-14">
           {SERVICES.map(service => (
             <div key={service.title} className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col">

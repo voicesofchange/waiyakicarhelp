@@ -23,18 +23,20 @@ const ATTRIBUTES = [
 
 export default function LandingMechanicDefinition() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/20 mb-6">
-            Who Is a Mechanic?
-          </span>
-          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">More Than a Trade. A Definition of Purpose.</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            At Waiyaki House, a <strong className="text-[#0D1B2A]">mechanic</strong> is not simply someone who fixes vehicles. A mechanic is a <span className="text-[#2563EB] font-bold">skill expert</span> — defined by their expertise, knowledge, experience, and the essential services they deliver to address the daily consumption needs of individuals. They are the practitioners on whom communities depend.
-          </p>
-        </div>
+    <section className="bg-white">
+      <div className="bg-[#0D1B2A] px-6 py-16 text-center">
+        <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/30 mb-6">
+          Who Is a Mechanic?
+        </span>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">More Than a Trade. A Definition of Purpose.</h2>
+        <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
+          At Waiyaki House, a <strong className="text-white">mechanic</strong> is not simply someone who fixes vehicles. A mechanic is a <span className="text-[#F59E0B] font-bold">skill expert</span> — defined by their expertise, knowledge, experience, and the essential services they deliver to address the daily consumption needs of individuals.
+        </p>
+      </div>
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="mb-14">
 
+        </div>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {ATTRIBUTES.map(attr => (
             <div key={attr.title} className="bg-[#F0F4FF] border border-blue-100 rounded-2xl p-6 text-center">

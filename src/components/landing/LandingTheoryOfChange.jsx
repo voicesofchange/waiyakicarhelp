@@ -16,13 +16,15 @@ const FOR_EXPERTS = [
 
 export default function LandingTheoryOfChange() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto text-center">
-        <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Theory of Change</span>
-        <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Why the Circular Model Works</h2>
-        <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
+    <section className="bg-white">
+      <div className="bg-[#0D1B2A] px-6 py-16 text-center">
+        <span className="text-[#F59E0B] font-bold text-sm uppercase tracking-widest">Theory of Change</span>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">Why the Circular Model Works</h2>
+        <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
           Collective responsibility is the engine of change. Waiyaki House creates a closed loop where every participant is accountable to every other. Drivers pay fairly. Skill experts deliver reliably. Investors fund with purpose. Communities protect and steward. No one extracts — everyone contributes, everyone benefits.
         </p>
+      </div>
+      <div className="max-w-5xl mx-auto px-6 py-16 text-center">
         <div className="grid md:grid-cols-2 gap-8 text-left">
           <div className="bg-[#EFF6FF] rounded-2xl p-8 border border-blue-100">
             <h3 className="font-black text-xl mb-4 text-[#0D1B2A]">For Drivers</h3>

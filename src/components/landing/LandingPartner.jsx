@@ -91,16 +91,18 @@ export default function LandingPartner() {
   };
 
   return (
-    <section id="partner-with-us" className="py-24 px-6 bg-[#F0F4FF]">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-[#2563EB] font-bold text-sm uppercase tracking-widest">Collaborate</span>
-          <h2 className="text-4xl font-black mt-3 mb-4 text-[#0D1B2A]">Partner With Waiyaki House</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Collective responsibility means the loop only works when everyone shows up. Whether you invest capital, contribute skills, bring a fleet, or champion the environment — there is a place for you in the loop, and a shared stake in its success. Here is exactly who we need, and what we offer in return.
-          </p>
-        </div>
+    <section id="partner-with-us" className="bg-[#F0F4FF]">
+      <div className="bg-[#0D1B2A] px-6 py-16 text-center">
+        <span className="text-[#F59E0B] font-bold text-sm uppercase tracking-widest">Collaborate</span>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">Partner With Waiyaki House</h2>
+        <p className="text-blue-100/70 max-w-2xl mx-auto text-lg">
+          Collective responsibility means the loop only works when everyone shows up. Whether you invest capital, contribute skills, bring a fleet, or champion the environment — there is a place for you in the loop, and a shared stake in its success.
+        </p>
+      </div>
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="mb-12">
 
+        </div>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
 
           {/* INVESTORS */}
