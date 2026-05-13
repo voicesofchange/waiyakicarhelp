@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
 
-const NAV_LINKS = ["About", "Mission", "Vision", "How It Works", "Partner With Us"];
+const NAV_LINKS = ["About", "Mission", "Vision", "How It Works", "SDGs", "Partner With Us"];
 
 export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -340,6 +340,93 @@ export default function Landing() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SDGs */}
+      <section id="sdgs" className="py-24 px-6 bg-[#0D1B2A] text-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-4">
+            <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#2563EB]/30 mb-6">
+              UN Sustainable Development Goals
+            </span>
+            <h2 className="text-4xl font-black mb-4">Built for People, Planet &amp; Prosperity.</h2>
+            <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed mb-16">
+              Waiyaki Roadside is not just a business — it is a deliberate response to Kenya's development challenges. Every job dispatched advances multiple UN SDGs simultaneously.
+            </p>
+          </div>
+
+          {/* Primary SDGs */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                num: "SDG 8",
+                color: "bg-[#A21942]",
+                icon: "💼",
+                title: "Decent Work & Economic Growth",
+                highlight: "Youth Economic Empowerment",
+                desc: "Waiyaki prioritises recruiting young mechanics from underserved communities, giving them formal contracts, digital income records, and a professional identity. 80% revenue share ensures fair, living-wage compensation — turning informal roadside work into dignified, structured employment.",
+              },
+              {
+                num: "SDG 11",
+                color: "bg-[#F99D26]",
+                icon: "🏙️",
+                title: "Sustainable Cities & Communities",
+                highlight: "Safer Urban Roads",
+                desc: "Stranded vehicles on Nairobi's corridors create congestion, accidents, and emissions. By dispatching mechanics within 20 minutes, Waiyaki reduces breakdown dwell time, keeps traffic flowing, and makes Kenya's roads safer and more resilient for everyone.",
+              },
+              {
+                num: "SDG 10",
+                color: "bg-[#DD1367]",
+                icon: "⚖️",
+                title: "Reduced Inequalities",
+                highlight: "Formalising the Informal Sector",
+                desc: "Kenya's roadside mechanics operate in a cash-only, accountability-free informal economy with no path to progression. Waiyaki brings them into the formal digital economy — with traceable income, professional ratings, and access to financial services they were previously excluded from.",
+              },
+            ].map(sdg => (
+              <div key={sdg.num} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+                <div className={`${sdg.color} px-6 py-4 flex items-center gap-3`}>
+                  <span className="text-2xl">{sdg.icon}</span>
+                  <div>
+                    <p className="text-white font-black text-sm">{sdg.num}</p>
+                    <p className="text-white/80 text-xs leading-tight">{sdg.title}</p>
+                  </div>
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-[#F59E0B] font-bold text-sm mb-3">{sdg.highlight}</p>
+                  <p className="text-blue-100/70 text-sm leading-relaxed">{sdg.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Secondary SDGs */}
+          <div className="grid md:grid-cols-4 gap-4 mb-12">
+            {[
+              { num: "SDG 1", color: "border-[#E5243B]", icon: "🏠", title: "No Poverty", desc: "Stable, predictable income for mechanics and their families lifts households out of poverty through dignified work." },
+              { num: "SDG 9", color: "border-[#FD6925]", icon: "🏗️", title: "Industry & Innovation", desc: "Digital dispatch, GPS tracking, and M-PESA integration bring modern infrastructure to an informal market." },
+              { num: "SDG 17", color: "border-[#19486A]", icon: "🤝", title: "Partnerships for Goals", desc: "Waiyaki actively seeks corporate, NGO, and investor partners to co-build the infrastructure that scales this model." },
+              { num: "SDG 13", color: "border-[#3F7E44]", icon: "🌍", title: "Climate Action", desc: "Faster tyre repair means less idling, fewer tow-truck trips, and reduced emissions per breakdown — a small but measurable environmental benefit." },
+            ].map(sdg => (
+              <div key={sdg.num} className={`bg-white/5 border-l-4 ${sdg.color} border border-white/10 rounded-2xl p-5`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">{sdg.icon}</span>
+                  <span className="text-white font-black text-xs">{sdg.num}</span>
+                </div>
+                <p className="text-white font-bold text-sm mb-2">{sdg.title}</p>
+                <p className="text-blue-100/60 text-xs leading-relaxed">{sdg.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Youth focus callout */}
+          <div className="bg-gradient-to-r from-[#2563EB]/30 to-[#1E3A5F]/50 border border-[#2563EB]/40 rounded-2xl p-8 text-center">
+            <p className="text-[#F59E0B] font-black text-sm uppercase tracking-widest mb-3">Our Youth Commitment</p>
+            <h3 className="text-white font-black text-2xl mb-4">Economic Empowerment, Starting Young.</h3>
+            <p className="text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
+              Kenya has one of Africa's largest youth populations, with over 75% of Kenyans under 35. Many skilled young mechanics are locked out of the formal economy. Waiyaki's goal is to make youth mechanics the backbone of our contractor network — providing apprenticeships, certification pathways, and digital financial inclusion as we scale.
+            </p>
           </div>
         </div>
       </section>
