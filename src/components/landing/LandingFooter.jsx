@@ -19,7 +19,14 @@ export default function LandingFooter() {
             <p className="text-blue-200/80 font-bold mb-3">Contact</p>
             <p className="text-blue-200/50 text-xs">sustainthevoices@gmail.com</p>
             <p className="text-blue-200/50 text-xs">Limuru Area, Nairobi, Kenya</p>
-            <p className="text-blue-200/50 text-xs">Tex Wambui · Co-Founder, Waiyaki House LLC</p>
+            <div className="pt-2 space-y-1.5">
+              <p className="text-white/80 text-xs font-semibold">Tex Wambui</p>
+              <p className="text-blue-200/50 text-xs">Co-Founder & Director, Waiyaki House LLC</p>
+            </div>
+            <div className="pt-1 space-y-1.5">
+              <p className="text-white/80 text-xs font-semibold">Hussein Waiyaki</p>
+              <p className="text-blue-200/50 text-xs">Co-Founder & Director · Local Representative, Waiyaki House LLC</p>
+            </div>
           </div>
         </div>
         <div className="border-t border-white/10 pt-6">
