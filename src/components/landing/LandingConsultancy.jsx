@@ -73,7 +73,7 @@ export default function LandingConsultancy() {
                     </div>
                   ))}
                 </div>
-                <a href="#contact-form" onClick={e => { e.preventDefault(); document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-6 block text-center border-2 border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] text-gray-600 font-bold text-sm py-2.5 rounded-xl transition-colors cursor-pointer">
+                <a href="#contact-form" onClick={e => { e.preventDefault(); document.getElementById('consultancy-contact-form')?.scrollIntoView({ behavior: 'smooth' }); }} className="mt-6 block text-center border-2 border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] text-gray-600 font-bold text-sm py-2.5 rounded-xl transition-colors cursor-pointer">
                   Enquire →
                 </a>
               </div>
@@ -87,12 +87,12 @@ export default function LandingConsultancy() {
           <p className="text-blue-100/70 max-w-2xl mx-auto leading-relaxed text-sm">
             In our circular model, consultancy is not a separate business — it is the layer that protects and compounds everything else. Legal knowledge defends communities. Environmental stewardship restores what mobility uses. Facilitation resolves the conflicts that slow progress. Together, they ensure the loop keeps turning — for everyone, not just those who can pay a premium for good counsel.
           </p>
-          <button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="inline-block mt-6 bg-[#F59E0B] text-[#0D1B2A] font-black px-8 py-3 rounded-xl hover:bg-yellow-400 transition-colors text-sm">
+          <button onClick={() => document.getElementById('consultancy-contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="inline-block mt-6 bg-[#F59E0B] text-[#0D1B2A] font-black px-8 py-3 rounded-xl hover:bg-yellow-400 transition-colors text-sm">
             Request a Consultation →
           </button>
         </div>
 
-        <div className="mt-14">
+        <div id="consultancy-contact-form" className="mt-14">
           <ContactForm defaultType="Legal Consultancy" />
         </div>
       </div>
