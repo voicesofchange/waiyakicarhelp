@@ -14,30 +14,30 @@ import LandingPartner from "@/components/landing/LandingPartner";
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const TABS = [
-  { id: "about",        label: "About",           icon: "🏠" },
-  { id: "mission",      label: "Mission",          icon: "🎯" },
-  { id: "who",          label: "Who Is a Mechanic?", icon: "🔧" },
-  { id: "framework",    label: "Framework",        icon: "🔁" },
-  { id: "vision",       label: "Vision",           icon: "🌅" },
-  { id: "how-it-works", label: "How It Works",     icon: "⚙️" },
-  { id: "change",       label: "Theory of Change", icon: "💡" },
-  { id: "sdgs",         label: "SDGs",             icon: "🌍" },
-  { id: "consultancy",  label: "Consultancy",      icon: "⚖️" },
-  { id: "partner",      label: "Partner With Us",  icon: "🤝" },
-];
+{ id: "about", label: "About", icon: "🏠" },
+{ id: "mission", label: "Mission", icon: "🎯" },
+{ id: "who", label: "Who Is a Mechanic?", icon: "🔧" },
+{ id: "framework", label: "Framework", icon: "🔁" },
+{ id: "vision", label: "Vision", icon: "🌅" },
+{ id: "how-it-works", label: "How It Works", icon: "⚙️" },
+{ id: "change", label: "Theory of Change", icon: "💡" },
+{ id: "sdgs", label: "SDGs", icon: "🌍" },
+{ id: "consultancy", label: "Consultancy", icon: "⚖️" },
+{ id: "partner", label: "Partner With Us", icon: "🤝" }];
+
 
 export default function Landing() {
   const [activeTab, setActiveTab] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const currentTab = TABS.find(t => t.id === activeTab);
+  const currentTab = TABS.find((t) => t.id === activeTab);
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
 
       {/* TOP NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1B2A] border-b border-white/5 shadow-xl">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto h-16 flex items-center justify-between gap-4">
           {/* Logo */}
           <button onClick={() => setActiveTab("about")} className="flex items-center gap-2 flex-shrink-0">
             <img src="https://media.base44.com/images/public/69cf0927fb6ca50b8990557d/23900b373_WaiyakiHouse.png" alt="Waiyaki House LLC" className="h-9 w-9 object-contain rounded-lg" />
@@ -49,26 +49,26 @@ export default function Landing() {
 
           {/* Desktop tab bar */}
           <div className="hidden lg:flex items-center gap-1 overflow-x-auto flex-1 justify-center">
-            {TABS.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                  activeTab === tab.id
-                    ? "bg-[#F59E0B] text-[#0D1B2A]"
-                    : "text-white/90 hover:text-white hover:bg-white/10"
-                }`}
-              >
+            {TABS.map((tab) =>
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
+              activeTab === tab.id ?
+              "bg-[#F59E0B] text-[#0D1B2A]" :
+              "text-white/90 hover:text-white hover:bg-white/10"}`
+              }>
+              
                 {tab.icon} {tab.label}
               </button>
-            ))}
+            )}
           </div>
 
           {/* Partner CTA */}
           <button
             onClick={() => setActiveTab("partner")}
-            className="hidden sm:block bg-[#F59E0B] text-[#0D1B2A] font-black text-xs px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors flex-shrink-0 shadow-md"
-          >
+            className="hidden sm:block bg-[#F59E0B] text-[#0D1B2A] font-black text-xs px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors flex-shrink-0 shadow-md">
+            
             Partner With Us
           </button>
 
@@ -83,23 +83,23 @@ export default function Landing() {
         </div>
 
         {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0D1B2A] border-t border-white/10 px-4 py-4 grid grid-cols-2 gap-2">
-            {TABS.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => { setActiveTab(tab.id); setMobileMenuOpen(false); }}
-                className={`text-left px-3 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                  activeTab === tab.id
-                    ? "bg-[#F59E0B] text-[#0D1B2A]"
-                    : "text-blue-200 hover:bg-white/10"
-                }`}
-              >
+        {mobileMenuOpen &&
+        <div className="lg:hidden bg-[#0D1B2A] border-t border-white/10 px-4 py-4 grid grid-cols-2 gap-2">
+            {TABS.map((tab) =>
+          <button
+            key={tab.id}
+            onClick={() => {setActiveTab(tab.id);setMobileMenuOpen(false);}}
+            className={`text-left px-3 py-2.5 rounded-xl text-sm font-bold transition-all ${
+            activeTab === tab.id ?
+            "bg-[#F59E0B] text-[#0D1B2A]" :
+            "text-blue-200 hover:bg-white/10"}`
+            }>
+            
                 {tab.icon} {tab.label}
               </button>
-            ))}
+          )}
           </div>
-        )}
+        }
       </nav>
 
       {/* TAB BREADCRUMB BAND */}
@@ -111,8 +111,8 @@ export default function Landing() {
 
       {/* HERO — always shown on "about" tab, full width above content */}
       <div className="pt-28">
-        {activeTab === "about" && (
-          <>
+        {activeTab === "about" &&
+        <>
             <LandingHero onTabChange={setActiveTab} />
             <LandingStats />
             {/* TWO CORE SERVICES */}
@@ -138,12 +138,12 @@ export default function Landing() {
                         Fast, reliable tyre repair and roadside help dispatched directly to stranded drivers along the Waiyaki Way corridor. A verified skill expert reaches you in under 20 minutes — no negotiation, no surprises. Pay via M-PESA.
                       </p>
                       <div className="space-y-2">
-                        {["Puncture repair (tubeless & tube)", "Tyre change & balancing", "Tyre inflation & refit", "Jump starts & minor roadside fixes"].map(item => (
-                          <div key={item} className="flex items-center gap-2">
+                        {["Puncture repair (tubeless & tube)", "Tyre change & balancing", "Tyre inflation & refit", "Jump starts & minor roadside fixes"].map((item) =>
+                      <div key={item} className="flex items-center gap-2">
                             <span className="text-[#F59E0B] font-black text-xs">✓</span>
                             <p className="text-blue-200/80 text-sm">{item}</p>
                           </div>
-                        ))}
+                      )}
                       </div>
                     </div>
                     <div className="px-8 pb-8">
@@ -167,12 +167,12 @@ export default function Landing() {
                         Independent consultancy services open to individuals, communities, businesses, and organisations. We provide expert guidance on legal rights, youth economic empowerment, environmental stewardship, and multi-stakeholder dialogue — embedding collective responsibility into every engagement.
                       </p>
                       <div className="space-y-2">
-                        {["Legal rights & community law", "Youth empowerment & skills development", "Environmental & conservation advisory", "Dialogue & facilitation services"].map(item => (
-                          <div key={item} className="flex items-center gap-2">
+                        {["Legal rights & community law", "Youth empowerment & skills development", "Environmental & conservation advisory", "Dialogue & facilitation services"].map((item) =>
+                      <div key={item} className="flex items-center gap-2">
                             <span className="text-[#2563EB] font-black text-xs">✓</span>
                             <p className="text-gray-600 text-sm">{item}</p>
                           </div>
-                        ))}
+                      )}
                       </div>
                     </div>
                     <div className="px-8 pb-8">
@@ -186,7 +186,7 @@ export default function Landing() {
             </section>
             <LandingProblem />
           </>
-        )}
+        }
         {activeTab === "mission" && <LandingMission />}
         {activeTab === "who" && <LandingMechanicDefinition />}
         {activeTab === "framework" && <LandingLayers />}
@@ -200,23 +200,23 @@ export default function Landing() {
 
       {/* Bottom tab bar for mobile */}
       <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#0D1B2A] border-t border-white/10 flex overflow-x-auto">
-        {TABS.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex-shrink-0 flex flex-col items-center px-3 py-2 text-xs font-bold transition-all min-w-[64px] ${
-              activeTab === tab.id
-                ? "text-[#F59E0B] border-t-2 border-[#F59E0B]"
-                : "text-blue-300"
-            }`}
-          >
+        {TABS.map((tab) =>
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`flex-shrink-0 flex flex-col items-center px-3 py-2 text-xs font-bold transition-all min-w-[64px] ${
+          activeTab === tab.id ?
+          "text-[#F59E0B] border-t-2 border-[#F59E0B]" :
+          "text-blue-300"}`
+          }>
+          
             <span className="text-base">{tab.icon}</span>
             <span className="mt-0.5 leading-tight text-center whitespace-nowrap" style={{ fontSize: "9px" }}>{tab.label}</span>
           </button>
-        ))}
+        )}
       </div>
 
       <LandingFooter />
-    </div>
-  );
+    </div>);
+
 }
