@@ -40,7 +40,7 @@ export default function LandingHowItWorks() {
         </div>
 
         <div className="bg-[#0D1B2A] rounded-3xl p-8 text-white">
-          <h3 className="font-black text-xl mb-2 text-[#F59E0B]">Pilot Roadside Services & Fixed Rates</h3>
+          <h3 className="font-black text-xl mb-2 text-[#F59E0B]">Roadside Services & Fixed Rates</h3>
           <p className="text-blue-100/70 text-sm mb-6">All rates are fixed. No negotiation at the roadside. All vehicle types covered. Every fee feeds the loop.</p>
           <div className="grid md:grid-cols-2 gap-3">
             {SERVICES.map(r => (

@@ -18,8 +18,8 @@ export default function LandingProblem() {
           </div>
           <div className="space-y-4">
             <div className="bg-[#0D1B2A] rounded-2xl p-6 text-white">
-              <p className="text-[#F59E0B] font-black text-lg mb-2">No circular model exists yet</p>
-              <p className="text-blue-100 text-sm leading-relaxed">No platform today connects roadside assistance services to community wealth creation. Waiyaki House builds that connection — digitally, transparently, at scale.</p>
+              <p className="text-[#F59E0B] font-black text-lg mb-2">We built the circular model</p>
+              <p className="text-blue-100 text-sm leading-relaxed">Waiyaki House directly connects roadside assistance services to community wealth creation — digitally, transparently, and at scale along the Waiyaki Way corridor.</p>
             </div>
             <div className="bg-[#EFF6FF] rounded-2xl p-6 border border-blue-100">
               <p className="text-[#0D1B2A] font-black text-lg mb-2">Average vehicle age: 14–20 years</p>

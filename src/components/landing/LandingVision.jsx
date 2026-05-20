@@ -1,20 +1,20 @@
 const GOALS = [
-  "Prove the circular loop in Limuru — mobility, income, community, environment",
-  "Expand the loop to Nairobi, Nakuru, and Thika corridors",
+  "Operate the circular loop in Limuru — mobility, income, community, environment",
+  "Expand operations to Nairobi, Nakuru, and Thika corridors",
   "Build a certified network of 100+ contracted skill experts reinvesting in their communities",
-  "Introduce fleet contracts that fund deeper environmental restoration",
+  "Introduce fleet contracts that deepen environmental restoration funding",
   "Partner with insurers, NGOs, and DFIs to co-finance community infrastructure",
-  "Launch consultancy and dialogue services across all active corridors",
+  "Scale consultancy and dialogue services across all active corridors",
 ];
 
 const PHASES = [
   {
-    label: "Phase 1 — Pilot (Now)",
+    label: "Phase 1 — Limuru Operations",
     border: "border-[#F59E0B]",
     bg: "bg-[#FEF9C3]",
     textColor: "text-[#0D1B2A]",
     bodyColor: "text-yellow-900",
-    desc: "One skill expert. Limuru area. Prove the loop works: driver pays → expert earns → revenue funds community → community strengthens demand. Every job is a proof point for the whole model.",
+    desc: "Active operations in the Limuru area. Driver requests fulfilled, skill experts earning, community value generated — every job strengthens the loop and grows our operational footprint.",
   },
   {
     label: "Phase 2 — Corridor Expansion",
@@ -22,7 +22,7 @@ const PHASES = [
     bg: "bg-[#EFF6FF]",
     textColor: "text-[#0D1B2A]",
     bodyColor: "text-gray-600",
-    desc: "Expand the loop to new corridors. Onboard more skill experts and community partners. Launch fleet accounts and consultancy services. Environmental and legal programmes scale with the business.",
+    desc: "Expanding the loop to Kikuyu, Westlands, and key Nairobi corridors. Growing the contractor network, launching fleet accounts, and deepening environmental and community programmes.",
   },
   {
     label: "Phase 3 — Platform Scale",
@@ -30,7 +30,7 @@ const PHASES = [
     bg: "bg-gray-50",
     textColor: "text-gray-700",
     bodyColor: "text-gray-500",
-    desc: "A fully self-sustaining circular economy — pan-African corridor coverage, insurance partnerships, a skill expert training academy, a conservation endowment, and community consultancy embedded in every market we enter.",
+    desc: "A fully self-sustaining circular economy — pan-African corridor coverage, insurance partnerships, a skill expert training academy, a conservation endowment, and community consultancy embedded in every market we serve.",
   },
 ];
 
@@ -39,9 +39,9 @@ export default function LandingVision() {
     <section id="vision" className="bg-white">
       <div className="bg-[#0D1B2A] px-6 py-16 text-center">
         <span className="text-[#F59E0B] font-bold text-sm uppercase tracking-widest">Our Vision</span>
-        <h2 className="text-4xl font-black mt-3 mb-4 text-white">Prove the Loop. Then Scale It Across Kenya.</h2>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">The Loop Is Running. Now We Scale It Across Kenya.</h2>
         <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
-          The pilot proves the circular model works through collective responsibility — one skill expert, one corridor, one community, all accountable to each other.
+          The circular model is live in Limuru — skill experts earning, drivers served, community value generated. Every phase adds more participants, more corridors, more compounding impact.
         </p>
       </div>
       <div className="max-w-5xl mx-auto px-6 py-16">

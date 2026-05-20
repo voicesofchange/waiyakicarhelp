@@ -35,7 +35,7 @@ export default function LandingFooter() {
         </div>
         <div className="border-t border-white/10 pt-6">
           <p className="text-blue-200/30 text-xs text-center">
-            © {new Date().getFullYear()} Waiyaki House LLC. All rights reserved. · Roadside Assistance Pilot · Limuru Area · MVP v1.0
+            © {new Date().getFullYear()} Waiyaki House LLC. All rights reserved. · Roadside Assistance · Limuru Area, Kenya
           </p>
         </div>
       </div>

@@ -5,7 +5,7 @@ export default function LandingHero({ onTabChange }) {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="max-w-4xl mx-auto text-center relative">
         <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 border border-[#2563EB]/30">
-          Waiyaki House LLC — Limuru Area, Kenya · Pilot 2026
+          Waiyaki House LLC — Limuru Area, Kenya · Roadside Assistance
         </span>
         <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
           A Circular Economy{" "}
@@ -15,7 +15,7 @@ export default function LandingHero({ onTabChange }) {
           Every breakdown resolved creates a job. Every job dignifies a skilled expert. Every expert empowered strengthens a community. Every strong community protects its environment. That cycle is Waiyaki House.
         </p>
         <p className="text-blue-200/70 text-base max-w-xl mx-auto mb-4 leading-relaxed">
-          Roadside assistance services. Youth economic empowerment. Environmental stewardship. Legal and community consultancy. Four pillars. One reinforcing loop.
+          Roadside assistance services. Skill expert empowerment. Environmental stewardship. Community investment. Four pillars. One reinforcing loop.
         </p>
         <p className="text-[#F59E0B] font-bold text-sm max-w-lg mx-auto mb-10 leading-relaxed">
           The engine of this circular economy is <strong>collective responsibility</strong> — every participant, from driver to skill expert to investor to community, holds a shared stake in the outcome. When one wins, all win.

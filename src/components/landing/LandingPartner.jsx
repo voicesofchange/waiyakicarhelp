@@ -64,10 +64,10 @@ const NGO_AREAS = [
 ];
 
 const DRIVER_PERKS = [
-  "Priority access to all roadside services when we launch in 2026",
+  "Access to all roadside services — available now in the Limuru area",
   "Fixed, transparent pricing — no roadside negotiation, ever",
   "Tyre repairs, jump starts, fuel delivery, towing & more",
-  "Verified skill expert dispatched to your location in <20 minutes",
+  "Verified skill expert dispatched to your location in under 20 minutes",
   "Pay securely via M-PESA — no cash handling",
 ];
 
@@ -95,7 +95,7 @@ export default function LandingPartner() {
             </div>
             <div className="p-8">
               <p className="text-blue-100/70 text-sm leading-relaxed mb-8">
-                Investing in Waiyaki House means investing in a circular economy that compounds. Capital deployed here generates returns across mobility, livelihoods, environment, and community knowledge — simultaneously. We are raising a seed round to prove the loop in Limuru and establish the operational data to justify Series A corridor expansion.
+                Investing in Waiyaki House means investing in a circular economy that compounds. Capital deployed here generates returns across mobility, livelihoods, environment, and community knowledge — simultaneously. Our operations are live in Limuru, generating real jobs and real community value. We are now growing the loop and inviting strategic capital partners to accelerate corridor expansion.
               </p>
               <p className="text-[#F59E0B] font-bold text-sm uppercase tracking-wide mb-4">Investment Tiers — What We're Asking For</p>
               <div className="space-y-3 mb-8">
@@ -233,9 +233,9 @@ export default function LandingPartner() {
             </div>
             <div className="p-8 flex-1 flex flex-col">
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                If you drive in the Limuru area or along the Waiyaki Way corridor, you are exactly who this is for. We are onboarding early driver members ahead of our 2026 pilot launch — for the full range of roadside assistance services. Register your interest now.
+                If you drive in the Limuru area or along the Waiyaki Way corridor, you are exactly who this is for. We provide fast, reliable roadside assistance — fixed rates, verified skill experts, and M-PESA payment. Register now and get priority access to our growing network of services.
               </p>
-              <p className="text-[#0D1B2A] font-bold text-sm mb-3">What You Get as an Early Member</p>
+              <p className="text-[#0D1B2A] font-bold text-sm mb-3">What You Get as a Member</p>
               <div className="space-y-2 mb-8">
                 {DRIVER_PERKS.map(r => (
                   <div key={r} className="flex items-start gap-2">
@@ -245,7 +245,7 @@ export default function LandingPartner() {
                 ))}
               </div>
               <button onClick={scrollToForm} className="mt-auto inline-block bg-[#F59E0B] text-[#0D1B2A] font-black px-6 py-3 rounded-xl text-sm hover:bg-yellow-400 transition-colors text-center">
-                Register as an Early Driver →
+                Register as a Driver →
               </button>
             </div>
           </div>
