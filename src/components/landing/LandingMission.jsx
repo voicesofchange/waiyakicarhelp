@@ -2,17 +2,22 @@ const PILLARS = [
   {
     icon: "🚗",
     title: "Serve Drivers",
-    desc: "Fixed rates across all roadside services — no negotiation under stress. A verified skill expert dispatched to your location via app. Pay via M-PESA. Value enters the loop here — predictable, digital, and accountable.",
+    desc: "Fixed rates for tyre services — no negotiation under stress. A verified skill expert dispatched to your location via app. Pay via M-PESA. Value enters the loop here — predictable, digital, and accountable.",
   },
   {
     icon: "🔧",
+    title: "Specialise in Tyres",
+    desc: "Puncture repair, tyre change, balancing, inflation, and roadside fixes — our expertise is concentrated in tyre services where we deliver speed, reliability, and local mastery along the Waiyaki Way corridor.",
+  },
+  {
+    icon: "👨‍🔧",
     title: "Empower Skill Experts",
-    desc: "80% of every job fee returns directly to the mechanic — a skilled expert defined by their expertise, knowledge, experience, and the daily services they provide to people in need. Creating household income, formal economic identity, and local wealth that stays in the community.",
+    desc: "80% of every job fee returns directly to the mechanic — a skilled expert defined by their expertise, knowledge, experience, and the daily services they provide to people in need. Creating household income and local wealth.",
   },
   {
     icon: "🌍",
-    title: "Restore & Advise",
-    desc: "Platform revenue funds wetland restoration, corridor clean-ups, and community consultancy — ensuring economic activity regenerates rather than depletes the environment and social fabric.",
+    title: "Restore the Environment",
+    desc: "Platform revenue funds wetland restoration and corridor clean-ups — ensuring economic activity regenerates rather than depletes the environment.",
   },
 ];
 
@@ -27,7 +32,7 @@ export default function LandingMission() {
         </p>
       </div>
       <div className="max-w-5xl mx-auto text-center px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {PILLARS.map(item => (
             <div key={item.title} className="bg-white rounded-2xl p-8 shadow-sm border border-blue-100 text-left">
               <span className="text-4xl block mb-4">{item.icon}</span>
