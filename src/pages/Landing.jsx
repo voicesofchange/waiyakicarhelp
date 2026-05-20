@@ -7,9 +7,6 @@ import LandingMechanicDefinition from "@/components/landing/LandingMechanicDefin
 import LandingLayers from "@/components/landing/LandingLayers";
 import LandingVision from "@/components/landing/LandingVision";
 import LandingHowItWorks from "@/components/landing/LandingHowItWorks";
-import LandingTheoryOfChange from "@/components/landing/LandingTheoryOfChange";
-import LandingSDGs from "@/components/landing/LandingSDGs";
-import LandingConsultancy from "@/components/landing/LandingConsultancy";
 import LandingPartner from "@/components/landing/LandingPartner";
 import LandingFooter from "@/components/landing/LandingFooter";
 
@@ -20,9 +17,6 @@ const TABS = [
 { id: "framework", label: "Loop", icon: "🔁" },
 { id: "vision", label: "Vision", icon: "🌅" },
 { id: "how-it-works", label: "Process", icon: "⚙️" },
-{ id: "change", label: "Impact", icon: "💡" },
-{ id: "sdgs", label: "SDGs", icon: "🌍" },
-{ id: "consultancy", label: "Counsel", icon: "⚖️" },
 { id: "partner", label: "Collaborate", icon: "🤝" }];
 
 
@@ -119,10 +113,10 @@ export default function Landing() {
             <section className="py-16 px-6 bg-white">
               <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-10">
-                  <span className="text-[#2563EB] font-bold text-xs uppercase tracking-widest">What We Do</span>
-                  <h2 className="text-3xl font-black mt-2 text-[#0D1B2A]">Two Distinguished Services. One Circular Mission.</h2>
+                <span className="text-[#2563EB] font-bold text-xs uppercase tracking-widest">What We Do</span>
+                <h2 className="text-3xl font-black mt-2 text-[#0D1B2A]">Fast, Reliable Roadside Assistance.</h2>
                 </div>
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
                   {/* SERVICE 1 */}
                   <div className="bg-[#0D1B2A] rounded-3xl overflow-hidden flex flex-col">
                     <div className="px-8 pt-8 pb-6 flex-1">
@@ -152,35 +146,7 @@ export default function Landing() {
                       </button>
                     </div>
                   </div>
-                  {/* SERVICE 2 */}
-                  <div className="bg-[#F0F4FF] border border-blue-100 rounded-3xl overflow-hidden flex flex-col">
-                    <div className="px-8 pt-8 pb-6 flex-1">
-                      <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#2563EB]/20 mb-4">Service 2</span>
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="text-4xl">⚖️</span>
-                        <div>
-                          <h3 className="text-[#0D1B2A] font-black text-xl leading-tight">Consultancy</h3>
-                          <p className="text-[#2563EB] text-xs">Legal · Youth empowerment · Environmental · Dialogue</p>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                        Independent consultancy services open to individuals, communities, businesses, and organisations. We provide expert guidance on legal rights, youth economic empowerment, environmental stewardship, and multi-stakeholder dialogue — embedding collective responsibility into every engagement.
-                      </p>
-                      <div className="space-y-2">
-                        {["Legal rights & community law", "Youth empowerment & skills development", "Environmental & conservation advisory", "Dialogue & facilitation services"].map((item) =>
-                      <div key={item} className="flex items-center gap-2">
-                            <span className="text-[#2563EB] font-black text-xs">✓</span>
-                            <p className="text-gray-600 text-sm">{item}</p>
-                          </div>
-                      )}
-                      </div>
-                    </div>
-                    <div className="px-8 pb-8">
-                      <button onClick={() => setActiveTab("consultancy")} className="w-full bg-[#0D1B2A] text-white font-black py-3 rounded-xl hover:bg-[#1E3A5F] transition-colors text-sm mt-6">
-                        Explore Consultancy →
-                      </button>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </section>
@@ -192,9 +158,6 @@ export default function Landing() {
         {activeTab === "framework" && <LandingLayers />}
         {activeTab === "vision" && <LandingVision />}
         {activeTab === "how-it-works" && <LandingHowItWorks />}
-        {activeTab === "change" && <LandingTheoryOfChange />}
-        {activeTab === "sdgs" && <LandingSDGs />}
-        {activeTab === "consultancy" && <LandingConsultancy />}
         {activeTab === "partner" && <LandingPartner />}
       </div>
 
