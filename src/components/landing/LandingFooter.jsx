@@ -27,6 +27,10 @@ export default function LandingFooter() {
               <p className="text-white/80 text-xs font-semibold">Hussein Waiyaki</p>
               <p className="text-blue-200/50 text-xs">Co-Founder & Director · Local Representative, Waiyaki House LLC</p>
             </div>
+            <div className="pt-1 space-y-1.5">
+              <p className="text-white/80 text-xs font-semibold">Prince Waiyaki</p>
+              <p className="text-blue-200/50 text-xs">Chief Tyre Service Officer, Waiyaki House LLC</p>
+            </div>
           </div>
         </div>
         <div className="border-t border-white/10 pt-6">
