@@ -120,7 +120,7 @@ export default function Landing() {
                   {/* SERVICE 1 */}
                   <div className="bg-[#0D1B2A] rounded-3xl overflow-hidden flex flex-col">
                     <div className="px-8 pt-8 pb-6 flex-1">
-                      <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#2563EB]/30 mb-4">Service 1</span>
+                      <span className="inline-block bg-[#2563EB]/20 text-blue-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#2563EB]/30 mb-4">On-Demand · Limuru Area</span>
                       <div className="flex items-center gap-3 mb-4">
                         <span className="text-4xl">🚗</span>
                         <div>
@@ -173,7 +173,7 @@ export default function Landing() {
           "text-blue-300"}`
           }>
           
-            <span className="mt-0.5 leading-tight text-center whitespace-nowrap" style={{ fontSize: "9px" }}>{tab.label}</span>
+            <span className="mt-0.5 leading-tight text-center whitespace-nowrap text-[10px]">{tab.label}</span>
           </button>
         )}
       </div>

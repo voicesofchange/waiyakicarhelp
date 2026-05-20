@@ -39,7 +39,7 @@ export default function LandingVision() {
     <section id="vision" className="bg-white">
       <div className="bg-[#0D1B2A] px-6 py-16 text-center">
         <span className="text-[#F59E0B] font-bold text-sm uppercase tracking-widest">Our Vision</span>
-        <h2 className="text-4xl font-black mt-3 mb-4 text-white">The Loop Is Running. Now We Scale It Across Kenya.</h2>
+        <h2 className="text-4xl font-black mt-3 mb-4 text-white">Operational in Limuru. Scaling Across Kenya.</h2>
         <p className="text-blue-100/70 max-w-2xl mx-auto text-lg leading-relaxed">
           The circular model is live in Limuru — skill experts earning, drivers served, community value generated. Every phase adds more participants, more corridors, more compounding impact.
         </p>

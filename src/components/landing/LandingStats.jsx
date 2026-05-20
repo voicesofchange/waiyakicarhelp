@@ -1,8 +1,8 @@
 const STATS = [
-  { value: "~5M", label: "Registered Vehicles in Kenya" },
-  { value: "< 20min", label: "Response Time" },
-  { value: "80%", label: "Skill Expert Revenue Share" },
-  { value: "12+", label: "Roadside Services Offered" },
+  { value: "< 20min", label: "Expert Response Time" },
+  { value: "80%", label: "Revenue to Skill Experts" },
+  { value: "12+", label: "Roadside Services" },
+  { value: "M-PESA", label: "Secure Digital Payments" },
 ];
 
 export default function LandingStats() {
