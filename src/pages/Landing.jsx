@@ -11,13 +11,13 @@ import LandingPartner from "@/components/landing/LandingPartner";
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const TABS = [
-{ id: "about", label: "Home", icon: "🏠" },
-{ id: "mission", label: "Purpose", icon: "🎯" },
-{ id: "who", label: "Mechanic", icon: "🔧" },
-{ id: "framework", label: "Loop", icon: "🔁" },
-{ id: "vision", label: "Vision", icon: "🌅" },
-{ id: "how-it-works", label: "Process", icon: "⚙️" },
-{ id: "partner", label: "Collaborate", icon: "🤝" }];
+{ id: "about", label: "Home" },
+{ id: "mission", label: "Purpose" },
+{ id: "who", label: "Mechanic" },
+{ id: "framework", label: "Loop" },
+{ id: "vision", label: "Vision" },
+{ id: "how-it-works", label: "Process" },
+{ id: "partner", label: "Collaborate" }];
 
 
 export default function Landing() {
@@ -53,7 +53,7 @@ export default function Landing() {
               "text-white/90 hover:text-white hover:bg-white/10"}`
               }>
               
-                {tab.icon} {tab.label}
+                {tab.label}
               </button>
             )}
           </div>
@@ -89,7 +89,7 @@ export default function Landing() {
             "text-blue-200 hover:bg-white/10"}`
             }>
             
-                {tab.icon} {tab.label}
+                {tab.label}
               </button>
           )}
           </div>
@@ -100,7 +100,7 @@ export default function Landing() {
       <div className="fixed top-16 left-0 right-0 z-40 bg-[#1E3A5F] border-b border-white/10 px-4 py-2 flex items-center gap-2">
         <span className="text-[#F59E0B] text-xs font-bold uppercase tracking-widest">Waiyaki House LLC</span>
         <span className="text-white/30 text-xs">→</span>
-        <span className="text-white text-xs font-bold">{currentTab?.icon} {currentTab?.label}</span>
+        <span className="text-white text-xs font-bold">{currentTab?.label}</span>
       </div>
 
       {/* HERO — always shown on "about" tab, full width above content */}
@@ -173,7 +173,6 @@ export default function Landing() {
           "text-blue-300"}`
           }>
           
-            <span className="text-base">{tab.icon}</span>
             <span className="mt-0.5 leading-tight text-center whitespace-nowrap" style={{ fontSize: "9px" }}>{tab.label}</span>
           </button>
         )}
